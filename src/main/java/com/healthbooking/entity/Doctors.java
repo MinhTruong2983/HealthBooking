@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
@@ -22,37 +23,28 @@ import lombok.Data;
 	@Table(name = "doctors")
 	public class Doctors {
 	
-		 @Id
+		     @Id
 		    @GeneratedValue(strategy = GenerationType.IDENTITY)
-		    @Column(name = "doctor_id")
-		    private int doctorId;
-		 
-	
-		    @Column(name = "doctor_name")
-		    private String doctorName;
-	
-		    @Column(name = "email")
-		    private String email;
-	
-		    @Column(name = "phone_number")
-		    private String phoneNumber;
-	
-		    @Column(name = "gender")
-		    private String gender;
-	
-		    @Column(name = "age")
-		    private int age;
-	
-		    @Column(name = "img")
-		    private String img;
-	
-		    @Column(name = "qualification")
-		    private String qualification;
+		     private int doctorId;
 
-		    @ManyToOne
-		    @JoinColumn(name = "specialty_id")
-		    private Specialties specialty;
-		
+		     private String doctorName;
+		     private String email;
+		     private String phoneNumber;
+		     private String gender;
+		     private int age;
+		     private String specialtyId;
+		     private String img;
+		     private String qualification;
+		     
+		     @ManyToOne
+		     @JoinColumn(name = "medical_facility_id")
+		     private MedicalFacility medicalFacility;
+
+		     @ManyToOne
+		     @JoinColumn(name = "specialty")
+		     private Specialties specialty;
+		    
+		  
 		    @OneToMany(mappedBy = "doctor")
 		    private List<Schedule> schedule;
 	

@@ -16,23 +16,20 @@ public class Package {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "package_id")
     private int packageId;
 
-    @ManyToOne
-    @JoinColumn(name = "doctor_id")
-    private Doctors doctor;
 
-    @Column(name = "package_name")
     private String packageName;
-
-    @Column(name = "description")
+    
     private String description;
 
-    @Column(name = "price", precision = 10, scale = 2)
     private double price;
 
-    @Column(name = "img")
     private String img;
+
+    @ManyToOne
+    @JoinColumn(name = "doctor_id", insertable = false, updatable = false)
+    private Doctors doctor;
+
 
 }

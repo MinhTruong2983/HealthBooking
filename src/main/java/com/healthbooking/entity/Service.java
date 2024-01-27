@@ -19,21 +19,10 @@ public class Service {
 	
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    @Column(name = "service_id")
 	    private int serviceId;
 
-	    @Column(name = "service_name", unique = true)
 	    private String serviceName;
-
-	    @Column(name = "img")
 	    private String img;
-
-	    @ManyToOne
-	    @JoinColumn(name = "package_id")
-	    private Package aPackage;
-
-	    @ManyToOne
-	    @JoinColumn(name = "specialty_id")
-	    private Specialties specialty;
+	    private String serviceType;
 
 }

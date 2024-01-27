@@ -22,20 +22,18 @@ public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "post_id")
     private int postId;
 
     @ManyToOne
-    @JoinColumn(name = "doctor_id")
+    @JoinColumn(name = "doctor_id", insertable = false, updatable = false)
     private Doctors doctor;
 
-    @Column(name = "title")
     private String title;
 
-    @Column(name = "content")
+  
     private String content;
 
-    @Column(name = "post_date")
+  
     private LocalDate postDate;
 
 }
