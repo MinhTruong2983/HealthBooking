@@ -2,8 +2,8 @@ package com.healthbooking.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.healthbooking.entity.Specialties;
+import com.healthbooking.entity.ChuyenKhoa;
 
-public interface SpecialtiesDao extends JpaRepository<Specialties, String>{
+public interface ChuyenKhoaDao extends JpaRepository<ChuyenKhoa, String>{
 
 }

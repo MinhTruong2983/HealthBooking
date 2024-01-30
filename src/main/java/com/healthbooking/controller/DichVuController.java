@@ -8,23 +8,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.healthbooking.dao.ServiceDao;
-import com.healthbooking.entity.Service;
+import com.healthbooking.dao.DichVuDao;
+import com.healthbooking.entity.DichVu;
 
 @CrossOrigin("*")
 @RestController
-public class ServiceController {
+public class DichVuController {
 	@Autowired
-	ServiceDao dao;
+	DichVuDao dao;
 	
 	@GetMapping("/HealthBooking/dich-vu-y-te")
-	public List<Service> getall() {
+	public List<DichVu> getall() {
  	return dao.findAll();
 	}
 	
 	
 	@GetMapping("/HealthBooking/dich-vu-y-te/{serviceId}")
-	public Service getone(@PathVariable("serviceId") Integer serviceId ) {
+	public DichVu getone(@PathVariable("serviceId") Integer serviceId ) {
 		return dao.findById(serviceId).get();
 	}
 	

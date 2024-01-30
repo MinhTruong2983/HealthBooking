@@ -5,23 +5,21 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.healthbooking.dao.SpecialtiesDao;
-import com.healthbooking.entity.Service;
-import com.healthbooking.entity.Specialties;
+import com.healthbooking.dao.ChuyenKhoaDao;
+import com.healthbooking.entity.ChuyenKhoa;
 
 @CrossOrigin("*")
 @RestController
-public class SpecialtiesController {
+public class ChuyenKhoaController {
 	
 	@Autowired
-	SpecialtiesDao specialtiesDao;
+	ChuyenKhoaDao specialtiesDao;
 	
 	
 	@GetMapping("/HealthBooking/dich-vu-y-te/kham-chuyen-khoa")
-	public List<Specialties> getall() {
+	public List<ChuyenKhoa> getall() {
  	return specialtiesDao.findAll();
 	}
 	

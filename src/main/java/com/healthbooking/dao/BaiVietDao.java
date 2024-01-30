@@ -2,8 +2,8 @@ package com.healthbooking.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.healthbooking.entity.Post;
+import com.healthbooking.entity.BaiViet;
 
-public interface PostDao extends JpaRepository<Post, Integer>{
+public interface BaiVietDao extends JpaRepository<BaiViet, Integer>{
 
 }

@@ -7,19 +7,18 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.healthbooking.dao.AppointmentsDao;
-import com.healthbooking.entity.Appointments;
-import com.healthbooking.entity.Doctors;
+import com.healthbooking.dao.LichHenDao;
+import com.healthbooking.entity.LichHen;
 
 @CrossOrigin("*")
 @RestController
-public class AppointmentsController {
+public class LichHenController {
 
 	@Autowired
-	AppointmentsDao appointmentsDao;
+	LichHenDao appointmentsDao;
 	
 	@GetMapping("/HealthBooking/danh-sach/lich-kham")
-	public List<Appointments> getAll() {
+	public List<LichHen> getAll() {
  	return appointmentsDao.findAll();
 	}
 	

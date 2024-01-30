@@ -2,8 +2,8 @@ package com.healthbooking.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.healthbooking.entity.Package;
+import com.healthbooking.entity.GoiKham;
 
-public interface PackageDao extends JpaRepository<Package, Integer>{
+public interface GoiKhamDao extends JpaRepository<GoiKham, Integer>{
 
 }

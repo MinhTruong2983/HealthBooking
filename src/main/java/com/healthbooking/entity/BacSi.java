@@ -2,9 +2,7 @@ package com.healthbooking.entity;
 
 import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,37 +11,34 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 
 @Data
 @Entity
-	@Table(name = "doctors")
-	public class Doctors {
+	@Table(name = "BacSi")
+	public class BacSi {
 	
 		     @Id
-		    @GeneratedValue(strategy = GenerationType.IDENTITY)
-		     private int doctorId;
+			 @GeneratedValue(strategy = GenerationType.IDENTITY)
+		     private int maBacSi;
 
-		     private String doctorName;
+		     private String tenBacSi;
 		     private String email;
-		     private String phoneNumber;
-		     private String gender;
-		     private int age;
-		     private String img;
-		     private String qualification;
+		     private String soDienThoai;
+		     private String gioiTinh;
+		     private int Tuoi;
+		     private String hinhAnh;
+		     private String chuyenKhoa;
 		     
 		     @ManyToOne
 		     @JoinColumn(name = "medical_facility_id")
-		     private MedicalFacility medicalFacility;
+		     private CoSoYTe coSoYTe;
 
 		     @ManyToOne
 		     @JoinColumn(name = "specialty")
-		     private Specialties specialty;
+		     private ChuyenKhoa chuyenKhoa;
 
 		    @OneToMany(mappedBy = "doctor")
-		    private List<Schedule> schedule;
+		    private List<LichTrinh> lichTrinh;
 	
 }

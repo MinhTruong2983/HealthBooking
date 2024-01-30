@@ -1,6 +1,5 @@
 package com.healthbooking.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,7 +11,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "patients")
-public class Patients {
+public class BenhNhan {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

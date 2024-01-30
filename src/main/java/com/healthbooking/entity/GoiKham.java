@@ -10,7 +10,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "packages")
-public class Package {
+public class GoiKham {
 	
 	
 	@Id

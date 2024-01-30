@@ -2,8 +2,8 @@ package com.healthbooking.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.healthbooking.entity.Schedule;
+import com.healthbooking.entity.LichTrinh;
 
-public interface ScheduleDao  extends JpaRepository<Schedule, Integer>{
+public interface LichTrinhDao extends JpaRepository<LichTrinh, Integer>{
 
 }

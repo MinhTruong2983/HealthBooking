@@ -2,8 +2,8 @@ package com.healthbooking.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.healthbooking.entity.MedicalFacility;
+import com.healthbooking.entity.CoSoYTe;
 
-public interface MedicalFacilityDao extends JpaRepository<MedicalFacility, Integer>{
+public interface CoSoYTeDao extends JpaRepository<CoSoYTe, Integer>{
 
 }

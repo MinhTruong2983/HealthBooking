@@ -8,25 +8,25 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.healthbooking.dao.PostDao;
-import com.healthbooking.entity.Post;
+import com.healthbooking.dao.BaiVietDao;
+import com.healthbooking.entity.BaiViet;
 
 @CrossOrigin("*")
 @RestController
-public class PostController {
+public class BaiVietController {
 
 	@Autowired
-	PostDao postDao;
+	BaiVietDao postDao;
 	
 	
 	@GetMapping("/HealthBooking/cam-nang")
-	public List<Post> getAll() {
+	public List<BaiViet> getAll() {
  	return postDao.findAll();
 	}
 	
 	
 	@GetMapping("/HealthBooking/cam-nang/{PostID}")
-	public Post getID(@PathVariable("PostID") int PostID) {
+	public BaiViet getID(@PathVariable("PostID") int PostID) {
  	return postDao.findById(PostID).get();
 	}
 	

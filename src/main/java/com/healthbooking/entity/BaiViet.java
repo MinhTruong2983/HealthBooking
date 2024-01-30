@@ -15,8 +15,8 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "posts")
-public class Post {
+@Table(name = "BaiViet")
+public class BaiViet {
 	
 
     @Id
