@@ -2,7 +2,6 @@ package com.healthbooking.entity;
 
 import java.time.LocalDate;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +25,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "doctor_id", insertable = false, updatable = false)
-    private Doctors doctor;
+    private BacSi doctor;
 
     private String title;
 
@@ -35,5 +34,7 @@ public class Post {
 
   
     private LocalDate postDate;
+
+    private String img;
 
 }

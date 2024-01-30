@@ -1,6 +1,5 @@
 package com.healthbooking.entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,7 +28,7 @@ public class Package {
 
     @ManyToOne
     @JoinColumn(name = "doctor_id", insertable = false, updatable = false)
-    private Doctors doctor;
+    private BacSi doctor;
 
 
 }

@@ -8,22 +8,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import com.healthbooking.dao.DoctorDao;
-import com.healthbooking.entity.Doctors;
+import com.healthbooking.dao.BacSiDao;
+import com.healthbooking.entity.BacSi;
 
 
 
 
 @Controller
-public class DoctorController {
+public class BacSiController {
 
 	@Autowired
-	DoctorDao doctorDao;
+	BacSiDao doctorDao;
 	
 	
 	@GetMapping("/HealthBooking/danh-sach/bac-si/danh-cho-ban")
 	public String getAll( Model model ) {
-		List<Doctors> list = doctorDao.findAll();
+		List<BacSi> list = doctorDao.findAll();
 		model.addAttribute("list" ,list );
 		
  	return "/home/index";
@@ -31,7 +31,7 @@ public class DoctorController {
 	
 	@GetMapping("/HealthBooking/danh-sach/bac-si/{doctorID}")
 	public String getDoctorID( Model model , @PathVariable("doctorID") int doctorID ) {
-		Doctors doctor = doctorDao.findById(doctorID).get();
+		BacSi doctor = doctorDao.findById(doctorID).get();
 		
 		model.addAttribute("doctor" , doctor);
 		

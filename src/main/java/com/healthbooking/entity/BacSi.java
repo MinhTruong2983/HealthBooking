@@ -32,7 +32,6 @@ import lombok.Data;
 		     private String phoneNumber;
 		     private String gender;
 		     private int age;
-		     private String specialtyId;
 		     private String img;
 		     private String qualification;
 		     
@@ -43,8 +42,7 @@ import lombok.Data;
 		     @ManyToOne
 		     @JoinColumn(name = "specialty")
 		     private Specialties specialty;
-		    
-		  
+
 		    @OneToMany(mappedBy = "doctor")
 		    private List<Schedule> schedule;
 	
