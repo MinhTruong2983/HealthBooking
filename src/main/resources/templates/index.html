@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BookingCare - Nền tảng y tế sức khỏe toàn diện</title>
+    <link rel="shortcut icon" href="/image/Logo.png" type="image/x-icon">
     <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
@@ -13,7 +14,7 @@
         <header class="h-head mb-5">
             <nav class="navbar navbar-expand-lg bg-body-tertiary h-100">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#" style="width: 200px; height: 48px;">
+                    <a class="navbar-brand" href="index.html" style="width: 200px; height: 48px;">
                         <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-pulse"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
                         <strong>HealthBooking</strong>
                     </a>
@@ -33,7 +34,7 @@
                             Dịch vụ
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Chuyên khoa</a></li>
+                            <li><a class="dropdown-item" href="layout/specialized-clinic.html">Chuyên khoa</a></li>
                             <li><a class="dropdown-item" href="#">Bác sĩ</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Cơ sở y tế</a></li>
@@ -186,7 +187,7 @@
                         <h3>Chuyên khoa</h3>
                       </div>
                       <div class="col d-flex justify-content-end">
-                        <button type="button" class="btn btn-primary btn-lg">Xem thêm</button>
+                        <a href="layout/specialized-clinic.html" class="btn btn-primary btn-lg">Xem thêm</a>
                       </div>
                     </div>
                   </div>
