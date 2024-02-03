@@ -15,20 +15,20 @@ public class GoiKham {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int magoikham;
+    private int maGoiKham;
 
 
-    private String tengoikham;
+    private String tenGoiKham;
     
-    private String mieuta;
+    private String moTa;
 
     private double gia;
 
-    private String anh;
+    private String hinhAnh;
 
     @ManyToOne
-    @JoinColumn(name = "bacsi", insertable = false, updatable = false)
-    private BacSi bacsi;
+    @JoinColumn(name = "maBacSi", insertable = false, updatable = false)
+    private BacSi maBacSi;
 
 
 }

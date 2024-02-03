@@ -16,15 +16,15 @@ public class CoSoYTe {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int macosoyte;
+    private int maCoSoYTe;
 
     
-    private String tencosoyte;
+    private String tenCoSoYTe;
 
-    private String diachi;
+    private String diaChi;
 
-    private String thongtin;
+    private String thongTin;
     
-    private String anh;
+    private String hinhAnh;
   
 }

@@ -16,10 +16,10 @@ public class DichVu {
 	
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private int madichvu;
+	    private int maDichVu;
 
-	    private String tendichvu;
-	    private String anh;
-	    private String loaidichvu;
+	    private String tenDichVu;
+	    private String hinhAnh;
+	    private String loaiDichVu;
 
 }

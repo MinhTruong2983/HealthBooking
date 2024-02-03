@@ -20,21 +20,21 @@ public class LichTrinh {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int malichtrinh;
+    private int maLichTrinh;
 
   
-    private LocalDate ngaylamviec;
+    private LocalDate ngayLamViec;
 
     
-    private LocalTime thoigianbatdau;
-
-  
-    private LocalTime thoigianketthuc;
+//    private LocalTime thoigianbatdau;
+//
+//  
+//    private LocalTime thoigianketthuc;
 
 
     @ManyToOne
-    @JoinColumn(name = "mabacsi", insertable = false, updatable = false)
-    private BacSi bacsi;
+    @JoinColumn(name = "maBacSi", insertable = false, updatable = false)
+    private BacSi maBacSi;
 
 
 }

@@ -26,7 +26,7 @@ import lombok.Data;
 		     private String email;
 		     private String soDienThoai;
 		     private String gioiTinh;
-		     private int Tuoi;
+		     private int tuoi;
 		     private String hinhAnh;
 
 		     
@@ -38,7 +38,7 @@ import lombok.Data;
 		     @JoinColumn(name = "machuyenKhoa")
 		     private ChuyenKhoa chuyenKhoa;
 
-		    @OneToMany(mappedBy = "bacsi")
+		    @OneToMany(mappedBy = "maBacSi")
 		    private List<LichTrinh> lichTrinh;
 	
 }

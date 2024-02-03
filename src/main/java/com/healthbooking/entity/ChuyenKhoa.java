@@ -15,11 +15,11 @@ import lombok.Data;
 public class ChuyenKhoa {
 	
 	    @Id
-	    private String machuyenkhoa;
+	    private String maChuyenKhoa;
 
 	  
-	    private String anh;
+	    private String hinhAnh;
 
 	  
-	    private String tenchuyenkhoa;
+	    private String tenChuyenKhoa;
 }

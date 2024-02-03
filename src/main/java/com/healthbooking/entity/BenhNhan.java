@@ -15,22 +15,22 @@ public class BenhNhan {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int mabenhnhan;
+    private int maBenhNhan;
 
 
-    private String hovaten;
+    private String hoVaTen;
 
-    private String diachi;
+    private String diaChi;
 
 
     private String email;
 
-    private String sodienthoai;
+    private String soDienThoai;
 
   
-    private String gioitinh;
+    private String gioiTinh;
 
     private Integer tuoi;
 
-    private String anh;
+    private String hinhAnh;
 }
