@@ -15,26 +15,26 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "schedules")
+@Table(name = "LichTrinh")
 public class LichTrinh {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int scheduleId;
+    private int malichtrinh;
 
   
-    private LocalDate workDate;
+    private LocalDate ngaylamviec;
 
     
-    private LocalTime startTime;
+    private LocalTime thoigianbatdau;
 
   
-    private LocalTime endTime;
+    private LocalTime thoigianketthuc;
 
 
     @ManyToOne
-    @JoinColumn(name = "doctor_id", insertable = false, updatable = false)
-    private BacSi doctor;
+    @JoinColumn(name = "mabacsi", insertable = false, updatable = false)
+    private BacSi bacsi;
 
 
 }

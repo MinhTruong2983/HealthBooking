@@ -10,27 +10,27 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "patients")
+@Table(name = "BenhNhan")
 public class BenhNhan {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int patientId;
+    private int mabenhnhan;
 
 
-    private String fullName;
+    private String hovaten;
 
-    private String address;
+    private String diachi;
 
 
     private String email;
 
-    private String phoneNumber;
+    private String sodienthoai;
 
   
-    private String gender;
+    private String gioitinh;
 
-    private Integer age;
+    private Integer tuoi;
 
-    private String img;
+    private String anh;
 }

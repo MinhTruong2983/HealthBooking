@@ -28,17 +28,17 @@ import lombok.Data;
 		     private String gioiTinh;
 		     private int Tuoi;
 		     private String hinhAnh;
-		     private String chuyenKhoa;
+
 		     
 		     @ManyToOne
-		     @JoinColumn(name = "medical_facility_id")
+		     @JoinColumn(name = "macosoyte")
 		     private CoSoYTe coSoYTe;
 
 		     @ManyToOne
-		     @JoinColumn(name = "specialty")
+		     @JoinColumn(name = "machuyenKhoa")
 		     private ChuyenKhoa chuyenKhoa;
 
-		    @OneToMany(mappedBy = "doctor")
+		    @OneToMany(mappedBy = "bacsi")
 		    private List<LichTrinh> lichTrinh;
 	
 }

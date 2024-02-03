@@ -10,21 +10,21 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "medicalfacilities")
+@Table(name = "CoSoYTe")
 public class CoSoYTe {
 
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int medicalFacilityId;
+    private int macosoyte;
 
     
-    private String facilityName;
+    private String tencosoyte;
 
-    private String address;
+    private String diachi;
 
-    private String contactInfo;
+    private String thongtin;
     
-    private String img;
+    private String anh;
   
 }

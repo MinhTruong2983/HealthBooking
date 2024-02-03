@@ -10,16 +10,16 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "services")
+@Table(name = "DichVu")
 public class DichVu {
 	
 	
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private int serviceId;
+	    private int madichvu;
 
-	    private String serviceName;
-	    private String img;
-	    private String serviceType;
+	    private String tendichvu;
+	    private String anh;
+	    private String loaidichvu;
 
 }

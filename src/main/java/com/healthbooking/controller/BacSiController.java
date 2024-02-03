@@ -26,7 +26,7 @@ public class BacSiController {
 		List<BacSi> list = doctorDao.findAll();
 		model.addAttribute("list" ,list );
 		
- 	return "/home/index";
+ 	return "/index";
 	}
 	
 	@GetMapping("/HealthBooking/danh-sach/bac-si/{doctorID}")
@@ -38,10 +38,6 @@ public class BacSiController {
  	return "/home/doctor";
 	}
 	
-//	@GetMapping("/HealthBooking/dich-vu-y-te/kham-chuyen-khoa/{specialtiesID}")
-//	public List<Doctors> getOne(@PathVariable("specialtiesID") String specialtiesID ) {
-//		return doctorDao.findBySpecialtyId(specialtiesID);
-//	}
-		
+
 	
 }

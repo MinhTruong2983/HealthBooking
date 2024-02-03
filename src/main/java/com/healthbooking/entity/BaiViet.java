@@ -21,20 +21,20 @@ public class BaiViet {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int postId;
+    private int mabaiviet;
 
     @ManyToOne
-    @JoinColumn(name = "doctor_id", insertable = false, updatable = false)
-    private BacSi doctor;
+    @JoinColumn(name = "bacsi", insertable = false, updatable = false)
+    private BacSi bacsi;
 
-    private String title;
-
-  
-    private String content;
+    private String tieude;
 
   
-    private LocalDate postDate;
+    private String noidung;
 
-    private String img;
+  
+    private LocalDate ngaytao;
+
+    private String anh;
 
 }

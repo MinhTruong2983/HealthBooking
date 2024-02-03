@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3e98c07c-f5ec-4429-9d15-f016653d5025" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/BaiVietController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/BaiVietController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/BenhNhanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/BenhNhanController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/ChuyenKhoaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/ChuyenKhoaController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/CoSoYTeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/CoSoYTeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/DichVuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/DichVuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/LichHenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/LichHenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/LichTrinhController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/LichTrinhController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BacSiDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BacSiDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BaiVietDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BaiVietDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BenhNhanDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BenhNhanDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/ChuyenKhoaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/ChuyenKhoaDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/CoSoYTeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/CoSoYTeDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/DichVuDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/DichVuDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/GoiKhamDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/GoiKhamDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/LichHenDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/LichHenDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/LichTrinhDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/LichTrinhDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BacSi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BacSi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BaiViet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BaiViet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BenhNhan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BenhNhan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/ChuyenKhoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/ChuyenKhoa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/CoSoYTe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/CoSoYTe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/DichVu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/DichVu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/GoiKham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/GoiKham.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/LichHen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/LichHen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/LichTrinh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/LichTrinh.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/article.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/article.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/forgot-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/forgot-password.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/schedule-booking.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/schedule-booking.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/specialized-clinic-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/specialized-clinic-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/specialized-clinic.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/specialized-clinic.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
+  <component name="ProjectId" id="2bMVGquXYVUcNGBnHbmU6WhhS4e" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/wande/OneDrive/Desktop/New folder/HealthBooking",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\02_SCHOOL\06_Graduation_Project\Project\HealthBooking\src\main\resources\static\bootstrap-5.3.2-dist" />
+      <recent name="D:\02_SCHOOL\06_Graduation_Project\Project\HealthBooking\src\main\resources\static" />
+      <recent name="D:\02_SCHOOL\06_Graduation_Project\Project\HealthBooking\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\02_SCHOOL\06_Graduation_Project\Project\HealthBooking\src\main\resources\templates" />
+      <recent name="D:\02_SCHOOL\06_Graduation_Project\Project\HealthBooking\src\main\resources\static" />
+      <recent name="D:\02_SCHOOL\06_Graduation_Project\Project\HealthBooking\src\main\resources\templates\home" />
+      <recent name="D:\02_SCHOOL\06_Graduation_Project\Project\HealthBooking\src\main\resources\templates\layout" />
+      <recent name="D:\02_SCHOOL\06_Graduation_Project\Project\HealthBooking\src\main\resources\templates\layout\home" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="HealthBookingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="HealthBooking" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.healthbooking.HealthBookingApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3e98c07c-f5ec-4429-9d15-f016653d5025" name="Changes" comment="" />
+      <created>1706024841767</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1706024841767</updated>
+      <workItem from="1706024843257" duration="5477000" />
+      <workItem from="1706284082967" duration="184000" />
+      <workItem from="1706321342020" duration="2576000" />
+      <workItem from="1706537188679" duration="51000" />
+      <workItem from="1706537256494" duration="4538000" />
+      <workItem from="1706618299084" duration="6114000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

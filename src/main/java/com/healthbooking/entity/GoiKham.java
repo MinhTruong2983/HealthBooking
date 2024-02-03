@@ -9,26 +9,26 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "packages")
+@Table(name = "GoiKham")
 public class GoiKham {
 	
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int packageId;
+    private int magoikham;
 
 
-    private String packageName;
+    private String tengoikham;
     
-    private String description;
+    private String mieuta;
 
-    private double price;
+    private double gia;
 
-    private String img;
+    private String anh;
 
     @ManyToOne
-    @JoinColumn(name = "doctor_id", insertable = false, updatable = false)
-    private BacSi doctor;
+    @JoinColumn(name = "bacsi", insertable = false, updatable = false)
+    private BacSi bacsi;
 
 
 }

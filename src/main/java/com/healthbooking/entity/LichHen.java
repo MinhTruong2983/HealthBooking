@@ -15,33 +15,33 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "appointments")
+@Table(name = "LichHen")
 public class LichHen {
 
 	
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private int appointmentId;
+	    private int malichhen;
 
 	  
-	    private LocalDate appointmentDate;
+	    private LocalDate ngayhen;
 
 	
-	    private LocalTime startTime;
+	    private LocalTime thoigianbatdau;
 
 
-	    private LocalTime endTime;
+	    private LocalTime thoigianketthuc;
 
-	    private String appointmentStatus;
+	    private String trangthailichhen;
 
-	    private String description;
+	    private String mieuta;
 	    
 	    @ManyToOne
-	    @JoinColumn(name = "schedule_id", insertable = false, updatable = false)
-	    private LichTrinh schedule;
+	    @JoinColumn(name = "lichtrinh", insertable = false, updatable = false)
+	    private LichTrinh lichtrinh;
 
 	    @ManyToOne
-	    @JoinColumn(name = "patient_id", insertable = false, updatable = false)
-	    private BenhNhan patient;
+	    @JoinColumn(name = "benhnhan", insertable = false, updatable = false)
+	    private BenhNhan benhnhan;
 
 }

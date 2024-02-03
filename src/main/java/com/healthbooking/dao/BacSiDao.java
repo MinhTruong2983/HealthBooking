@@ -10,8 +10,5 @@ import com.healthbooking.entity.BacSi;
 
 public interface BacSiDao extends JpaRepository<BacSi, Integer>{
 
-	 @Query("SELECT d FROM BacSi d WHERE d.specialty.id = :specialtyId")
-	    List<BacSi> findBySpecialtyId(@Param("specialtyId") String specialtyId);
-	
-//	List<Doctors> findBySpecialty(Integer specialtyId);
+
 }
