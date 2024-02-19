@@ -10,5 +10,9 @@ import com.healthbooking.entity.BacSi;
 
 public interface BacSiDao extends JpaRepository<BacSi, Integer>{
 
-
+	 
+	 
+	  @Query("SELECT bs FROM BacSi bs WHERE bs.chuyenKhoa.maChuyenKhoa = :maChuyenKhoa")
+	    List<BacSi> findByMaChuyenKhoa(@Param("maChuyenKhoa") String maChuyenKhoa);
+	
 }

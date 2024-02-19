@@ -14,7 +14,8 @@ import lombok.Data;
 @Table(name = "ChuyenKhoa")
 public class ChuyenKhoa {
 	
-	    @Id
+	 
+		@Id
 	    private String maChuyenKhoa;
 
 	  
@@ -22,4 +23,6 @@ public class ChuyenKhoa {
 
 	  
 	    private String tenChuyenKhoa;
+	    
+	    private String mieuTa;
 }

@@ -1,0 +1,37 @@
+@charset "ISO-8859-1";
+
+.main {
+    width: 1208px;
+}
+
+.h-head {
+    height: 78px;   
+}
+
+.h-foot {
+    height: 457px;
+}
+
+.item-hover:hover {
+    box-shadow: 0 0 3px #3376db;
+}
+
+body {
+    overflow-x: hidden; /* Ẩn thanh cuộn ngang trên toàn bộ trang web */
+}
+
+
+/*
+
+slidershow
+
+*/
+
+
+
+
+
+
+
+
+

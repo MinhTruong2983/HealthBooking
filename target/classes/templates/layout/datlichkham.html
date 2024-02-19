@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Lịch Khám</title>
+    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+    
+ 
+</head>
+<body>
+    <div class="container main">
+       
+        <header th:insert="~{/layout/header.html::headerFragment}"></header>
+       
+
+       
+
+        <main>
+			 <h4> Đặt lịch khám</h4>
+			 <div class="row d-flex justify-content-center rounded" style="background-color: #D4EFFC;">
+             <div  style="width: 18rem;">
+             <img src="https://cdn.bookingcare.vn/fo/w256/2017/12/23/170155nguyen-van-doanh.jpg" class="rounded-pill d-block mt-3 mx-auto" alt="..." width="150px"/>
+             <div class="card-body justify-content-center ">
+				  <h5 class="card-title" th:text="${lichtrinh.maBacSi.tenBacSi}" style="color: #337ab7;"></h5>
+                <p class="card-text mb-2" style="color: #555; font-size: 15px ;" th:text=" ${#temporals.format(lichtrinh.thoigianbatdau, 'HH:mm')} + ' - ' + ${#temporals.format(lichtrinh.thoigianketthuc, 'HH:mm')}+ ' - ' + 'Ngày' + ' ' + ${#temporals.format(lichtrinh.ngayLamViec, 'dd-MM-yyyy')} "></p>
+             </div>
+             </div>
+             </div>
+             
+          <div class="row d-flex justify-content-center p-3">
+          <div class="border border-warning rounded text-center shadow" style="width: 18rem; padding: 10px;"
+          th:text="'Giá khám '+ ${lichtrinh.maBacSi.gia}+'0 VND'"
+         >
+          </div>
+          </div>
+          
+      <div class="container" style="width: 700px; padding: 10px;">
+      <form th:action="@{/HealthBooking/Dat-Lich-Kham}" method="post" th:object="${thongTinDatLich}">
+        <div class="form-group mb-3">
+            <input type="text" class="form-control" id="hoVaTen" name="hoVaTen" th:field="*{maBenhNhan.hoVaTen}" placeholder="Họ và Tên">
+        </div>
+
+
+        <div class="form-group mb-3">
+            <input type="tel" class="form-control" id="soDienThoai" name="soDienThoai" th:field="*{maBenhNhan.soDienThoai}" placeholder="Số Điện Thoại">
+        </div>
+
+        <div class="form-group mb-3">
+            <select class="form-control" id="gioiTinh" name="gioiTinh" th:field="*{maBenhNhan.gioiTinh}" placeholder="Giới Tính">
+                <option value="Nam">Nam</option>
+                <option value="Nu">Nữ</option>
+            </select>
+        </div>
+
+        <div class="form-group mb-3">
+            <input type="number" class="form-control" id="tuoi" name="tuoi" th:field="*{maBenhNhan.tuoi}" placeholder="Tuổi">
+        </div>
+        
+         <div class="form-group ">
+            <textarea class="form-control" id="liDoKham" name="liDoKham" th:field="*{mieuta}" placeholder="Lí do khám"></textarea>
+        </div>
+        <p style="color: #408FC5;">Hình thức thanh toán</p>
+        
+          <div class="form-check">
+            <input class="form-check-input" type="radio" id="genderFemale" name="gender" value="Nu">
+            <label class="form-check-label mb-2" for="genderFemale">
+            Thanh toán sau tại cơ sở y tế
+            </label>
+        </div>
+         
+
+         <div class="d-flex justify-content-center container rounded p-3"style="background-color: #f6f6f6;">
+           <div class="container">
+           <div class="row">
+           <div class="col">
+           Giá khám
+           </div>
+           <div class="col  text-end"  th:text=" ${lichtrinh.maBacSi.gia}+'0 VND'">
+    
+           </div>
+           </div>
+            <div class="row">
+            <div class="col">
+            Phí đặt lịch
+            </div>
+            <div class="col  text-end">
+            Miễn phí
+            </div>
+            </div>
+  <hr>
+            <div class="row">
+            <div class="col">
+              Tổng cộng
+             </div>
+              <div class="col  text-end " th:text="${lichtrinh.maBacSi.gia}+'0 VND'" style="color: red;">
+ 
+            </div>
+           </div>
+           </div>
+
+         </div>
+         
+         <p class="d-flex justify-content-center container mt-2 " style="font-size:15px">Quý khách vui lòng điền đầy đủ thông tin để tiết kiệm thời gian làm thủ tục khám</p>
+         
+         
+          <div class="d-flex justify-content-center container rounded"style="background-color: #D4EFFC;">
+           <div class="container">
+           <div class="row pt-3" style="font-weight: bold;">
+           Lưu ý
+           </div>
+            <div class="row p-3">
+          Thông tin anh/chị cung cấp sẽ được sử dụng làm hồ sơ khám bệnh, khi điền thông tin anh/chị vui lòng:
+            </div>
+            <div class="row p-3">
+          <ul>
+			  
+          <li style="text-align: justify; ">Ghi rõ họ và tên, viết hoa những chữ cái đầu tiên, ví dụ:<b> Trần Văn Phú&nbsp;</b></li>				  
+		  <li style="text-align: justify; ">Điền đầy đủ, đúng và vui lòng kiểm tra lại thông tin trước khi ấn "Xác nhận"</li>
+			  
+		  </ul>         
+          </div>
+  
+           </div>
+
+         </div>
+         
+
+        <button type="submit" class="btn btn-warning mt-3 rounded fw-bold " style="color: white; font-size: 20px;
+       width: 100%; 
+        
+        ">Xác nhận đặt khám</button>
+        
+        
+    </form>
+    
+  
+
+</div>
+
+
+
+
+			
+            
+        </main>
+
+
+       
+        <footer th:insert="~{/layout/footer.html::footerFragment}"></footer>
+       
+    </div>
+</body>
+</html>

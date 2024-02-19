@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:temporal="http://www.thymeleaf.org/extras/temporal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết chuyên khoa</title>
+    <link rel="shortcut icon" href="/image/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../style.css">
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+    <div class="container main">
+
+        <header th:insert="~{/layout/header.html::headerFragment}"></header>
+      	  <main>
+          <div class="card mb-3" th:each="bacsichuyenkhoa : ${bacsichuyenkhoa}">
+            <div class="row g-0">
+              <div class="col-md-2 h-100">
+                <div class="card border-0">
+                  <img src="https://cdn.bookingcare.vn/fo/w256/2017/12/23/170155nguyen-van-doanh.jpg" class="rounded-pill d-block mt-3 mx-auto" alt="..." width="150px"/>
+                  <div class="card-body d-flex justify-content-center">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-10">
+                <div class="row">
+                    
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${bacsichuyenkhoa.tenBacSi}"></h5>
+                            <p class="card-text " style="text-align: justify;"
+                            th:text="${bacsichuyenkhoa.chuyenKhoa.tenChuyenKhoa}"
+                            >            
+                            <p class="text-body-secondary" th:text="${bacsichuyenkhoa.kinhNghiem}">
+
+ 
+                            <p class="card-text"   th:text="${bacsichuyenkhoa.coSoYTe.diaChi}">
+                            
+                             
+                              </p>
+                          </div>
+                     </div>   
+                </div>
+                </div>
+              
+              
+                    <div class="container p-3">
+                    <div class="row">
+                    <div class="col-7">
+                             <div class="row mb-2">
+                              <div class="col-2">
+                         <h6>  LỊCH KHÁM</h6>
+                               </div>
+                          
+                          <div class="col-5 d-flex justify-content-end" >
+							  <h6> NGÀY</h6>
+							
+                         </div>
+                         
+                         <div class="col-5">
+                         
+                   <form th:action="@{/HealthBooking/bacsi/{maBacSi}(maBacSi=${bacsichuyenkhoa.maBacSi})}" th:method="get">
+                   <select class="form-select w-50 fw-bold" name="ngay" onchange="this.form.submit()">
+                   <option th:each="uniqueNgay, iterStat : ${listUniqueNgays}" 
+                   th:value="${#temporals.format(uniqueNgay, 'dd-MM-yyyy')}"
+                   th:text="${#temporals.format(uniqueNgay, 'dd-MM-yyyy')}"
+                   th:selected="${#strings.equals(#temporals.format(uniqueNgay, 'dd-MM-yyyy'), #request.getParameter('ngay'))}">
+                   </option>
+                   </select> 
+                   </form>
+                          </div>  
+                         
+                         
+                         </div>
+                        
+                      
+                         <div class="container text-center p-0">
+                         <div class="row row-cols-lg-5 gy-4" >
+							
+
+                  
+                  <div class="col" th:each="lichTrinh : ${bacsichuyenkhoa.lichTrinh}">
+        <a th:href="@{/HealthBooking/Dat-Lich-Kham/{id}(id=${lichTrinh.maLichTrinh})}">
+        <button class="btn btn-primary" type="button" 
+                th:text="${#temporals.format(lichTrinh.thoigianbatdau, 'HH:mm')} + ' - ' + ${#temporals.format(lichTrinh.thoigianketthuc, 'HH:mm')}">
+        </button>
+        </a>
+                  </div>
+
+               
+                          
+                          </div>
+                          </div>
+                    </div>
+                    <div class="col-5">
+                      <div class="container p-0 my-3">
+                            <ul class="list-group mb-3">
+                                <li class="list-group-item active" aria-current="true">
+                                  <div class="row">
+                                    <div class="col">
+                                      ĐỊA CHỈ KHÁM
+                                    </div>
+                                    <div class="col text-end">
+                                        <div class="d-inline bg-danger p-1 rounded-1">
+                                          GIÁ KHÁM: <strong th:text="${bacsichuyenkhoa.gia}"> VND</strong> <strong> VND</strong>
+                                        </div>
+                                    </div>
+                                  </div> 
+                                </li>
+                                <li class="list-group-item fw-bold"   th:text="${bacsichuyenkhoa.coSoYTe.tenCoSoYTe}"></li>
+                                <li class="list-group-item" th:text="${bacsichuyenkhoa.coSoYTe.diaChi}"></li>
+                              </ul>
+                          </div>
+                    </div>
+                    </div>
+                    </div>
+              
+              
+              
+              
+              
+              
+              
+              
+              
+            </div>
+          </div>
+         
+        </div>
+      </main>
+      
+      
+      
+          <footer th:insert="~{/layout/footer.html::footerFragment}"></footer>
+
+
+
+    </div>
+  </body>
+</html>

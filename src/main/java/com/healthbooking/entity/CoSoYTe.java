@@ -25,6 +25,8 @@ public class CoSoYTe {
 
     private String thongTin;
     
+    private String baoHiem;
+    
     private String hinhAnh;
   
 }
