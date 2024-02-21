@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -24,20 +25,26 @@ import lombok.Data;
 		     @Id
 			 @GeneratedValue(strategy = GenerationType.IDENTITY)
 		     private int maBacSi;
-
+		     
+		     @Column(columnDefinition = "nvarchar(max)")
 		     private String tenBacSi;
 		   
-
+		     @Column(columnDefinition = "nvarchar(max)")
 			 private String email;
+		     @Column(columnDefinition = "nvarchar(max)")
 		     private String soDienThoai;
+		     @Column(columnDefinition = "nvarchar(max)")
 		     private String gioiTinh;
 		     private int tuoi;
+		     
+		     @Column(columnDefinition = "nvarchar(max)")
 		     private String hinhAnh;
 		     
+		     @Column(columnDefinition = "nvarchar(max)")
 		     private String kinhNghiem;
-		     
+		     @Column(columnDefinition = "nvarchar(max)")
 		     private String daoTao;
-		    
+		     @Column(columnDefinition = "nvarchar(max)")
 		     private String khamVaDieuTri;
 		     
 		     private BigDecimal gia;

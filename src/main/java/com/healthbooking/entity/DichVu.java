@@ -1,5 +1,6 @@
 package com.healthbooking.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,9 +18,11 @@ public class DichVu {
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int maDichVu;
-
+	    @Column(columnDefinition = "nvarchar(max)")
 	    private String tenDichVu;
+	    @Column(columnDefinition = "nvarchar(max)")
 	    private String hinhAnh;
+	    @Column(columnDefinition = "nvarchar(max)")
 	    private String loaiDichVu;
 
 }

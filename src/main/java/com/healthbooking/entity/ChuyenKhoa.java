@@ -16,13 +16,15 @@ public class ChuyenKhoa {
 	
 	 
 		@Id
+		@Column(columnDefinition = "nvarchar(255)")
 	    private String maChuyenKhoa;
 
-	  
+		@Column(columnDefinition = "nvarchar(max)")
 	    private String hinhAnh;
 
-	  
+		@Column(columnDefinition = "nvarchar(max)")
 	    private String tenChuyenKhoa;
-	    
+		
+		@Column(columnDefinition = "nvarchar(max)")
 	    private String mieuTa;
 }

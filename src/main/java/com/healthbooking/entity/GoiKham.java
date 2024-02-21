@@ -1,5 +1,6 @@
 package com.healthbooking.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,13 +18,13 @@ public class GoiKham {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maGoiKham;
 
-
+	@Column(columnDefinition = "nvarchar(max)")
     private String tenGoiKham;
-    
+	@Column(columnDefinition = "nvarchar(max)")
     private String moTa;
 
     private double gia;
-
+    @Column(columnDefinition = "nvarchar(max)")
     private String hinhAnh;
 
     @ManyToOne

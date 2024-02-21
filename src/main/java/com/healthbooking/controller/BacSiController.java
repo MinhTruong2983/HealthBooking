@@ -43,7 +43,8 @@ public class BacSiController {
 	
 	@GetMapping("HealthBooking/bacsi/{doctorID}")
 	public String getDoctorID( Model model , @PathVariable("doctorID") int doctorID , @RequestParam(name = "ngay", required = false) String ngay) {
-		BacSi doctor = doctorDao.findById(doctorID).get();
+		
+		   BacSi doctor = doctorDao.findById(doctorID).get();
 		
 		
 		   Set<LocalDate> uniqueNgays = new HashSet<>();
@@ -59,13 +60,21 @@ public class BacSiController {
 	
 		    // Chuyển ngày từ String sang LocalDate
 		   if (ngay != null) {
+			   
+			   
 			    LocalDate ngayLamViec = LocalDate.parse(ngay, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+			    
+			    // Kiểm tra xem lịch trình của bác sĩ đã được thiết lập chưa
+			    if (!doctor.getLichTrinh().isEmpty()) {
+			        // Nếu đã có lịch trình, xóa lịch trình hiện tại trước khi cập nhật
+			        doctor.getLichTrinh().clear();
+			    }
+			    
 			    
 			    List<LichTrinh> listLichTrinhs = lichTrinhDao.findByNgayLamViec(ngayLamViec);
 			  
 			    doctor.setLichTrinh(listLichTrinhs);
-			    
-			    model.addAttribute("ngaychon" , ngayLamViec);
+
 		   }
 		   
 		   

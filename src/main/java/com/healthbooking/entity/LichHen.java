@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -26,10 +27,10 @@ public class LichHen {
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int maLichHen;
     
-
+	    @Column(columnDefinition = "nvarchar(max)")
 	    private String TrangThai;
 	    
-
+	    @Column(columnDefinition = "nvarchar(max)")
 	    private String mieuta;
 	    
 

@@ -2,6 +2,7 @@ package com.healthbooking.entity;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,14 +28,16 @@ public class BaiViet {
     @JoinColumn(name = "bacsi", insertable = false, updatable = false)
     private BacSi maBacSi;
 
+    @Column(columnDefinition = "nvarchar(max)")
     private String tieuDe;
 
-  
+    @Column(columnDefinition = "nvarchar(max)")
     private String noiDung;
 
   
     private LocalDate ngayTao;
-
+    
+    @Column(columnDefinition = "nvarchar(max)")
     private String hinhAnh;
 
 }
