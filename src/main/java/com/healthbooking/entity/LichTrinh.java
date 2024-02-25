@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -20,27 +21,28 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name = "LichTrinh")
-public class LichTrinh {
+	public class LichTrinh {
+		
+		@Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private int maLichTrinh;
 	
-	@Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int maLichTrinh;
-
+		
+	    private LocalDate ngayLamViec;
 	
-    private LocalDate ngayLamViec;
-
+		
+	    private LocalTime thoigianbatdau;
 	
-    private LocalTime thoigianbatdau;
-
-    private LocalTime thoigianketthuc;
-
-
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinColumn(name = "maBacSi", referencedColumnName = "maBacSi", insertable = false, updatable = false)
-    private BacSi maBacSi;
-
-
-    
+	    private LocalTime thoigianketthuc;
+	
+	    @Column(columnDefinition = "nvarchar(max)")
+	    private String TrangThai;
+	
+	    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	    @JoinColumn(name = "maBacSi", referencedColumnName = "maBacSi", insertable = false, updatable = false)
+	    private BacSi maBacSi;
+	
+	    
     
 
 }

@@ -15,4 +15,10 @@ public interface BacSiDao extends JpaRepository<BacSi, Integer>{
 	  @Query("SELECT bs FROM BacSi bs WHERE bs.chuyenKhoa.maChuyenKhoa = :maChuyenKhoa")
 	    List<BacSi> findByMaChuyenKhoa(@Param("maChuyenKhoa") String maChuyenKhoa);
 	
+	  
+	  // Tìm kiếm bác sĩ theo khu vực
+	    List<BacSi> findByKhuVuc(String khuVuc);
+	    
+	    
+	    List<BacSi> findByCoSoYTe_MaCoSoYTe(int maCoSoYTe);
 }

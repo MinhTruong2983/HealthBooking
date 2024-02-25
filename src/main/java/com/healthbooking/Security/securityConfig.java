@@ -55,7 +55,7 @@ public class securityConfig extends WebSecurityConfigurerAdapter{
 		
 	
 		http.formLogin()
-		.loginPage("/HealthBooking/security/login")
+		.loginPage("/HealthBooking/login")
 		.loginProcessingUrl("/HealthBooking/security/login")
 		.defaultSuccessUrl("/HealthBooking/security/login/success",false)
 		.failureUrl("/HealthBooking/security/login/error");
@@ -65,8 +65,8 @@ public class securityConfig extends WebSecurityConfigurerAdapter{
 		.tokenValiditySeconds(86400);
 		
 		http.logout()
-		.logoutUrl("/HealthBooking/security/logoff")
-		.logoutSuccessUrl("/security/logoff/success");
+		.logoutUrl("/HealthBooking/logoff")
+		.logoutSuccessUrl("/HealthBooking/login");
 		
 	}
 	

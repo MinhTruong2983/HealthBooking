@@ -98,8 +98,12 @@
                         <h3>Chuyên khoa</h3>
                       </div>
                       <div class="col d-flex justify-content-end">
+                        <a  th:href="@{/HealthBooking/danh-sach/chuyenkhoa}" >
+
                         <button type="button" class="btn btn-primary btn-lg">Xem thêm</button>
-                      </div>
+                        
+                        </a>                   
+                        </div>
                     </div>
                   </div>
                  
@@ -115,15 +119,16 @@
 
 								<div class="work border  " style="border-radius: 45px;"> 
 									<div class="img d-flex align-items-center justify-content-center rounded">
-						                <img th:src="@{/img/{image}(image=${ChuyenKhoa.hinhAnh})}" alt="Background Image" class="img-fluid rounded-5" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -1; ">
+						                <img th:src="@{/img/{image}(image=${ChuyenKhoa.hinhAnh})}" alt="Background Image" class="img-fluid rounded-5 p-4 " style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -1; border-radius: 45px; ">
 
 										
 									</div>
-									<div class="text pt-3 w-100 text-center">
+									
+								</div>
+								<div class="text pt-3 w-100 text-center">
 									<h4 th:text="${ChuyenKhoa.tenChuyenKhoa}"></h4>
 
 									</div>
-								</div>
 					  </a>
 							</div>
 
@@ -148,8 +153,11 @@
                         <h3>Cơ sở y tế</h3>
                       </div>
                       <div class="col d-flex justify-content-end">
+                       <a  th:href="@{/HealthBooking/coso-yte/danh-sach}" >
+
                         <button type="button" class="btn btn-primary btn-lg">Xem thêm</button>
-                      </div>
+                        
+                        </a>                       </div>
                     </div>
                   </div>
                   <!-- Danh mục CSYT Start -->
@@ -159,21 +167,21 @@
 					<div class="col-md-12">
 						<div class="featured-carousel owl-carousel" >
 						<div class="item" th:each="CoSoYTe : ${CoSoYTe}">
-					  <a th:href="${CoSoYTe.maCoSoYTe}" class="text-decoration-none  fs-4  text-dark">
-
+					    <a th:href="@{/HealthBooking/CoSoYTe/{maCoSoYTe}(maCoSoYTe=${CoSoYTe.maCoSoYTe})} " class="text-decoration-none  fs-4  text-dark">
 								<div class="work  border" style="border-radius: 45px;">
 									<div class="img d-flex align-items-center justify-content-center ">
-						                <img th:src="@{/img/{image}(image=${CoSoYTe.hinhAnh})}" alt="Background Image" class="img-fluid rounded-5" style="width: 100%; height: 70%; position: absolute; top: 0; left: 0; z-index: -1;">
+						                <img th:src="@{/img/{image}(image=${CoSoYTe.hinhAnh})}" alt="Background Image" class="img-fluid rounded-5 p-4" style="width: 100%; height: 70%; position: absolute; top: 0; left: 0; z-index: -1;">
 
 								
 									</div>
-									<div class="text pt-3 w-100 text-center">
+							
+								</div>
+										<div class="text pt-3 w-100 text-center">
 									<h4 th:text="${CoSoYTe.tenCoSoYTe}"></h4>
 
 									</div>
-								</div>
-					  </a>
-							</div>
+					    </a>
+						</div>
 				
 						</div>
 						</div>
@@ -197,7 +205,11 @@
                         <h3>Bác Sĩ </h3>
                       </div>
                       <div class="col d-flex justify-content-end">
+				    <a  th:href="@{/HealthBooking/bac-si/danh-sach}" >
+
                         <button type="button" class="btn btn-primary btn-lg">Xem thêm</button>
+                        
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -209,7 +221,7 @@
 					<div class="col-md-12">
 						<div class="featured-carousel owl-carousel" >
 						<div class="item" th:each="BacSi : ${BacSi}">
-					  <a th:href="${BacSi.maBacSi}" class="text-decoration-none  fs-4  text-dark">
+					  <a th:href="@{/HealthBooking/bacsi/{maBasi}(maBasi=${BacSi.maBacSi})} " class="text-decoration-none  fs-4  text-dark">
 
 								<div class="work " > 
 									<div class="img d-flex align-items-center justify-content-center rounded">
@@ -219,9 +231,7 @@
 									<div class="text pt-3 w-100 text-center">
 									<h4 th:text="${BacSi.tenBacSi}"></h4>
 									</div>
-									<div class="text pt-3 w-100 text-center">
-                                    <h4 th:text="${BacSi.chuyenKhoa.tenChuyenKhoa}"></h4>
-									</div>
+								
 								</div>
 					  </a>
 							</div>
@@ -244,7 +254,12 @@
                     <h3>Cẩm nang</h3>
                   </div>
                   <div class="col d-flex justify-content-end">
-                    <button type="button" class="btn btn-primary btn-lg">Xem thêm</button>
+                   
+                   		    <a  th:href="@{/HealthBooking/bac-si/danh-sach}" >
+
+                        <button type="button" class="btn btn-primary btn-lg">Xem thêm</button>
+                        
+                        </a>
                   </div>
                 </div>
               </div>

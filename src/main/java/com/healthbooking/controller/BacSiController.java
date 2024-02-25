@@ -1,10 +1,13 @@
 package com.healthbooking.controller;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -32,62 +35,80 @@ public class BacSiController {
 	@Autowired
 	LichTrinhDao lichTrinhDao;
 	
-//	@GetMapping("/HealthBooking/danh-sach/bac-si/danh-cho-ban")
-//	public String getAll( Model model ) {
-//		List<BacSi> list = doctorDao.findAll();
-//		model.addAttribute("list" ,list );
-//		
-// 	return "/index";
-//	}
+	@GetMapping("/HealthBooking/bac-si/danh-sach")
+	public String getAll( Model model ) {
+		List<BacSi> list = doctorDao.findAll();
+		model.addAttribute("list" ,list );
+		 // Lấy danh sách khu vực 
+			List<String> listKhuVuc = new ArrayList<>(Arrays.asList("TP. Hồ Chí Minh", "Đà Nẵng", "Hà Nội"));
+	        model.addAttribute("listKhuVuc", listKhuVuc);
+ 	return "layout/danhsachbacsi";
+	}
+	
+	
+	
+	
+	@GetMapping("/HealthBooking/bac-si/danh-sach{khuvuc}")
+	public String bacsiKhuVuc( Model model ,@RequestParam(name = "khuVuc", required = false) String khuVuc) {
+		List<BacSi> listBSkhuVuc = doctorDao.findByKhuVuc(khuVuc);
+		System.out.println(khuVuc);
+		model.addAttribute("list" ,listBSkhuVuc );
+		 // Lấy danh sách khu vực 
+		List<String> listKhuVuc = new ArrayList<>(Arrays.asList("TP. Hồ Chí Minh", "Đà Nẵng", "Hà Nội"));
+        model.addAttribute("listKhuVuc", listKhuVuc);
+	
+		
+ 	return "layout/danhsachbacsi";
+	}
+	
+	
 	
 	
 	@GetMapping("HealthBooking/bacsi/{doctorID}")
 	public String getDoctorID( Model model , @PathVariable("doctorID") int doctorID , @RequestParam(name = "ngay", required = false) String ngay) {
 		
-		   BacSi doctor = doctorDao.findById(doctorID).get();
-		
-		
-		   Set<LocalDate> uniqueNgays = new HashSet<>();
-
-		   List<LichTrinh> lichTrinhs = doctor.getLichTrinh();
-		   
-		  
-		   for (LichTrinh lichTrinh : lichTrinhs) {
-	            uniqueNgays.add(lichTrinh.getNgayLamViec());
-	        }
-		  
-		   
-	
+		BacSi doctor = doctorDao.findById(doctorID).get();
+		 List<LichTrinh> lichTrinhs = doctor.getLichTrinh();
 		    // Chuyển ngày từ String sang LocalDate
 		   if (ngay != null) {
-			   
-			   
 			    LocalDate ngayLamViec = LocalDate.parse(ngay, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-			    
-			    // Kiểm tra xem lịch trình của bác sĩ đã được thiết lập chưa
-			    if (!doctor.getLichTrinh().isEmpty()) {
-			        // Nếu đã có lịch trình, xóa lịch trình hiện tại trước khi cập nhật
-			        doctor.getLichTrinh().clear();
-			    }
-			    
-			    
-			    List<LichTrinh> listLichTrinhs = lichTrinhDao.findByNgayLamViec(ngayLamViec);
 			  
-			    doctor.setLichTrinh(listLichTrinhs);
-
+			    List<LichTrinh> lichTrinhList = lichTrinhDao.findByNgayLamViecAndMaBacSi(ngayLamViec, doctor);
+			    doctor.setLichTrinh(lichTrinhList);
 		   }
+		   Set<String> upcomingDays = getUpcomingDaysFromLichTrinh(lichTrinhs);
+          
+		      System.out.println(upcomingDays);
 		   
 		   
-		      model.addAttribute("bacsichuyenkhoa" , doctor);
-		 
-		    
-		      model.addAttribute("listUniqueNgays", new ArrayList<>(uniqueNgays));
- 
-		    
-		
+		      model.addAttribute("bacsichuyenkhoa" , doctor);    
+		      
+		      model.addAttribute("listUniqueNgays", upcomingDays);
+
 		 return "layout/bacsichitiet";
 	}
 	
+	
+	
+    public Set<String> getUpcomingDaysFromLichTrinh(List<LichTrinh> lichTrinhs) {
+        Set<String> uniqueNgays = new HashSet<>();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", new Locale("vi"));
+
+        LocalDate currentDate = LocalDate.now();
+        LocalDate endDate = currentDate.plusDays(7);
+
+        for (LichTrinh lichTrinh : lichTrinhs) {
+            LocalDate ngayLamViec = lichTrinh.getNgayLamViec();
+
+            // Kiểm tra xem ngày từ thuộc tính ngayLamViec có nằm trong khoảng 7 ngày từ ngày hiện tại không
+            if (ngayLamViec.isAfter(currentDate) && ngayLamViec.isBefore(endDate)) {
+                uniqueNgays.add(ngayLamViec.format(formatter));
+            }
+        }
+
+        return uniqueNgays;
+    }
+	 
 
 	
 

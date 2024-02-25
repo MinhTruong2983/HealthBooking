@@ -66,33 +66,30 @@ public class HomeController {
     @RequestMapping("/HealthBooking/security/login/success")
     public String HomeLoginSuccess(Model model) {
     	
-    	List<DichVu> DichVu = dichVuDao.findAll();
-		model.addAttribute("DichVu" ,DichVu );
-		
-		
-		List<ChuyenKhoa> ChuyenKhoa =  chuyenKhoaDao.findAll();
-		model.addAttribute("ChuyenKhoa" ,ChuyenKhoa );
-		
-		List<CoSoYTe> CoSoYTe =  coSoYTeDao.findAll();
-		model.addAttribute("CoSoYTe" ,CoSoYTe );
-	
-		List<BacSi> BacSi =  bacSiDao.findAll();
-		model.addAttribute("BacSi" ,BacSi );
-		
-		List<BaiViet> BaiViet =  baiVietDao.findAll();
-		
-		model.addAttribute("BaiViet" ,BaiViet );
+//    	List<DichVu> DichVu = dichVuDao.findAll();
+//		model.addAttribute("DichVu" ,DichVu );
+//		
+//		
+//		List<ChuyenKhoa> ChuyenKhoa =  chuyenKhoaDao.findAll();
+//		model.addAttribute("ChuyenKhoa" ,ChuyenKhoa );
+//		
+//		List<CoSoYTe> CoSoYTe =  coSoYTeDao.findAll();
+//		model.addAttribute("CoSoYTe" ,CoSoYTe );
+//	
+//		List<BacSi> BacSi =  bacSiDao.findAll();
+//		model.addAttribute("BacSi" ,BacSi );
+//		
+//		List<BaiViet> BaiViet =  baiVietDao.findAll();
+//		
+//		model.addAttribute("BaiViet" ,BaiViet );
     	
-        return "/index";
+		return "redirect:/HealthBooking";
+
     }
     
   
 	
-    @RequestMapping("/HealthBooking/security/login")
-    public String Login(Model model) {
-    	
-    return "layout/login";
-    }
+ 
     
     @RequestMapping("/HealthBooking/login")
     public String Login2(Model model) {
@@ -104,13 +101,13 @@ public class HomeController {
 
     
     
-    @GetMapping("/security/logoff/success")
+    @GetMapping("/security/success")
 	public String logoffsuccess(Model model){
 		model.addAttribute("message","Bạn đã đăng xuất :))!");
 		return "layout/login";
 	}
     
-    @RequestMapping("/HealthBooking/security/logoff")
+    @RequestMapping("/HealthBooking/logoff")
     public String llogou(Model model) {
     	
     return "layout/login";

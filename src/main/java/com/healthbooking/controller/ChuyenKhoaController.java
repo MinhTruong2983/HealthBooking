@@ -48,7 +48,7 @@ public class ChuyenKhoaController {
     	
     	model.addAttribute("listChuyenKhoas",listChuyenKhoas);
     	
-        return "layout/specialized-clinic";
+        return "layout/danhsachchuyenkhoa";
     }
 	
     
@@ -60,7 +60,7 @@ public class ChuyenKhoaController {
 
     	model.addAttribute("bacsichuyenkhoa",bacSis);
     	
-        return "layout/specialized-clinic-detail";
+        return "layout/danhsachbacsichuyenkhoa";
     }
     
     

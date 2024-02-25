@@ -48,6 +48,9 @@ import lombok.Data;
 		     private String khamVaDieuTri;
 		     
 		     private BigDecimal gia;
+		     
+		     @Column(columnDefinition = "nvarchar(max)")
+		     private String khuVuc;
 
 		     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 		     @JoinColumn(name = "macosoyte")
@@ -57,8 +60,8 @@ import lombok.Data;
 		     @JoinColumn(name = "machuyenKhoa")
 		     private ChuyenKhoa chuyenKhoa;
 
-		    @OneToMany(mappedBy = "maBacSi")
-		    private List<LichTrinh> lichTrinh;
+		     @OneToMany(mappedBy = "maBacSi", cascade = CascadeType.ALL)
+		    private List<LichTrinh> LichTrinh;
 
 		    
 		    @Override
