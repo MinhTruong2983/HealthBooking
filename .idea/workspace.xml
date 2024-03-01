@@ -5,39 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3e98c07c-f5ec-4429-9d15-f016653d5025" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/BaiVietController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/BaiVietController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/BenhNhanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/BenhNhanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/ChuyenKhoaController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/ChuyenKhoaController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/CoSoYTeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/CoSoYTeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/DichVuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/DichVuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/LichHenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/LichHenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/LichTrinhController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/LichTrinhController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BacSiDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BacSiDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BaiVietDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BaiVietDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BenhNhanDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BenhNhanDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/ChuyenKhoaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/ChuyenKhoaDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/CoSoYTeDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/CoSoYTeDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/DichVuDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/DichVuDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/GoiKhamDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/GoiKhamDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/LichHenDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/LichHenDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/LichTrinhDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/LichTrinhDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BacSi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BacSi.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BaiViet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BaiViet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BenhNhan.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/BenhNhan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/ChuyenKhoa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/ChuyenKhoa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/CoSoYTe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/CoSoYTe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/DichVu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/DichVu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/GoiKham.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/GoiKham.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/LichHen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/LichHen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/LichTrinh.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/entity/LichTrinh.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/article.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/article.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/forgot-password.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/forgot-password.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/schedule-booking.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/schedule-booking.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/specialized-clinic-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/specialized-clinic-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/specialized-clinic.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/specialized-clinic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,27 +40,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/wande/OneDrive/Desktop/New folder/HealthBooking",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;chuong&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/02_SCHOOL/06_Graduation_Project/Project/HealthBooking&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\02_SCHOOL\06_Graduation_Project\Project\HealthBooking\src\main\resources\static\bootstrap-5.3.2-dist" />
@@ -131,6 +102,14 @@
       <workItem from="1706537188679" duration="51000" />
       <workItem from="1706537256494" duration="4538000" />
       <workItem from="1706618299084" duration="6114000" />
+      <workItem from="1708623793601" duration="1623000" />
+      <workItem from="1708675076356" duration="6714000" />
+      <workItem from="1708685129426" duration="5693000" />
+      <workItem from="1708691244094" duration="325000" />
+      <workItem from="1708767499990" duration="2308000" />
+      <workItem from="1708965648663" duration="397000" />
+      <workItem from="1709273090167" duration="137000" />
+      <workItem from="1709273241584" duration="634000" />
     </task>
     <servers />
   </component>
