@@ -29,7 +29,7 @@
 			 <h4> Đặt lịch khám</h4>
 			 <div class="row d-flex justify-content-center rounded" style="background-color: #D4EFFC;">
              <div  style="width: 18rem;">
-             <img src="https://cdn.bookingcare.vn/fo/w256/2017/12/23/170155nguyen-van-doanh.jpg" class="rounded-pill d-block mt-3 mx-auto" alt="..." width="150px"/>
+             <img th:src="@{/img/{image}(image=${lichtrinh.maBacSi.hinhAnh})}" class="rounded-pill d-block mt-3 mx-auto" alt="..." width="150px"/>
              <div class="card-body justify-content-center ">
 				  <h5 class="card-title" th:text="${lichtrinh.maBacSi.tenBacSi}" style="color: #337ab7;"></h5>
                 <p class="card-text mb-2" style="color: #555; font-size: 15px ;" th:text=" ${#temporals.format(lichtrinh.thoigianbatdau, 'HH:mm')} + ' - ' + ${#temporals.format(lichtrinh.thoigianketthuc, 'HH:mm')}+ ' - ' + 'Ngày' + ' ' + ${#temporals.format(lichtrinh.ngayLamViec, 'dd-MM-yyyy')} "></p>
@@ -38,9 +38,10 @@
              </div>
              
           <div class="row d-flex justify-content-center p-3">
-          <div class="border border-warning rounded text-center shadow" style="width: 18rem; padding: 10px;"
-          th:text="'Giá khám '+ ${lichtrinh.maBacSi.gia}+'0 VND'"
+          <div class="border border-warning rounded text-center shadow" style=" width: 18rem; padding: 10px; color: red;"
+         th:text="${#numbers.formatDecimal(lichtrinh.maBacSi.gia, 0, 'COMMA', 0, 'POINT') +' '+'VND'}"
          >
+
           </div>
           </div>
           
@@ -71,12 +72,43 @@
         </div>
         <p style="color: #408FC5;">Hình thức thanh toán</p>
         
-          <div class="form-check">
-            <input class="form-check-input" type="radio" id="genderFemale" name="gender" value="Nu">
-            <label class="form-check-label mb-2" for="genderFemale">
-            Thanh toán sau tại cơ sở y tế
-            </label>
+          
+          
+          
+   <div class="row pb-3">
+	    
+    <div class="col-md-7">
+        <div class="payment-method-option" >
+            <div class="btn-group text-center" data-toggle="buttons" style="width: 100%;">
+                <label class="btn btn-light d-flex align-items-center" style="height: 85px;; ">
+                    <input type="radio" id="paymentMethodAtClinic" name="paymentMethod" value="atClinic" th:field="*{thanhtoan}">
+                    Thanh toán tại cơ sở y tế
+                     <img th:src="@{/img/bac-si-gia-dinh.png}" alt="" style="height: 70px;" >
+                </label>
+            </div>
         </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="payment-method-option">
+            <div class="btn-group" data-toggle="buttons"style="width: 100%;">
+                <label class="btn btn-light">
+                    <input type="radio" id="paymentMethodTransfer" name="paymentMethod" value="transfer" th:field="*{thanhtoan}">
+                    Chuyển khoản
+                     <img th:src="@{/img/logovnp.png}" alt="" style="height: 70px;" >
+                </label> 
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
          
 
          <div class="d-flex justify-content-center container rounded p-3"style="background-color: #f6f6f6;">
@@ -85,9 +117,11 @@
            <div class="col">
            Giá khám
            </div>
-           <div class="col  text-end"  th:text=" ${lichtrinh.maBacSi.gia}+'0 VND'">
-    
+           <div class="col  text-end">
+			          <strong th:text="${#numbers.formatDecimal(lichtrinh.maBacSi.gia, 0, 'COMMA', 0, 'POINT')}"></strong> <strong>VND</strong>
            </div>
+
+           
            </div>
             <div class="row">
             <div class="col">
@@ -102,7 +136,10 @@
             <div class="col">
               Tổng cộng
              </div>
-              <div class="col  text-end " th:text="${lichtrinh.maBacSi.gia}+'0 VND'" style="color: red;">
+              <div class="col  text-end " style="color: red;">
+				  
+		     <strong th:text="${#numbers.formatDecimal(lichtrinh.maBacSi.gia, 0, 'COMMA', 0, 'POINT')}"></strong> <strong>VND</strong>
+
  
             </div>
            </div>
@@ -134,18 +171,19 @@
 
          </div>
          
+          <input type="hidden" name="vnp_Version" value="2.1.0">
+          <input type="hidden" name="vnp_Command" value="pay">
+         
 
         <button type="submit" class="btn btn-warning mt-3 rounded fw-bold " style="color: white; font-size: 20px;
        width: 100%; 
         
         ">Xác nhận đặt khám</button>
-        
-        
-    </form>
-    
-  
+       
 
 </div>
+
+
 
 
 

@@ -33,6 +33,12 @@ public class LichHen {
 	    @Column(columnDefinition = "nvarchar(max)")
 	    private String mieuta;
 	    
+	    @Column(columnDefinition = "nvarchar(max)")
+	    private String thanhtoan;
+	    
+	    @Column(columnDefinition = "nvarchar(max)")
+	    private long giakham;
+	    
 
 	    
 	    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
