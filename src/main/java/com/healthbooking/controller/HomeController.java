@@ -107,8 +107,8 @@ public class HomeController {
 		return "layout/login";
 	}
     
-    @RequestMapping("/HealthBooking/logoff")
-    public String llogou(Model model) {
+    @RequestMapping("/HealthBooking/logout")
+    public String logout(Model model) {
     	
     return "layout/login";
     }

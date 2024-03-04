@@ -38,20 +38,13 @@ public class LichHen {
 	    
 	    @Column(columnDefinition = "nvarchar(max)")
 	    private long giakham;
-	    
 
-	    
 	    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	    @JoinColumn(name = "maLichTrinh", referencedColumnName = "maLichTrinh")
 	    private LichTrinh maLichTrinh;
 
-
-
 	    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	    @JoinColumn(name = "maBenhNhan")
 	    private BenhNhan maBenhNhan;
-	    
-	    
-	    
 
 }

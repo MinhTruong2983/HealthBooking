@@ -16,6 +16,8 @@ import com.healthbooking.entity.BenhNhan;
 import com.healthbooking.entity.CoSoYTe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -94,7 +96,8 @@ public class BacSiController {
 
 		 return "layout/bacsichitiet";
 	}
-	
+
+
 	
 	
     public Set<String> getUpcomingDaysFromLichTrinh(List<LichTrinh> lichTrinhs) {
@@ -115,8 +118,6 @@ public class BacSiController {
 
         return uniqueNgays;
     }
-
-
 
 
 	

@@ -61,45 +61,42 @@ public class LichHenController {
 
 	@Autowired
 	BenhNhanDao benhNhanDao;
-  
-	
+
+
 	 @RequestMapping("/HealthBooking/Dat-Lich-Kham/{malichtrinh}")
 	    public String lichkham(Model model ,@PathVariable int malichtrinh) {
-		    
+
 		 // Lấy đối tượng Authentication từ SecurityContextHolder
 	        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
- 
+
 	        String username = authentication.getName();
-	        
-	        
+
+
 	        BenhNhan benhNhan = benhNhanDao.findByEmail(username);
 
 		    LichHen lichHen = new LichHen();
-		    
+
 		    lichHen.setMaBenhNhan(benhNhan);
-		     
-		
-		 
+
+
+
 		    model.addAttribute("thongTinDatLich", lichHen);
-		  
-	    	
+
+
 	        LichTrinh  lichtrinh = lichTrinhDao.findById(malichtrinh).get();
-	        
-	      
+
+
 	        int maLichTrinh = lichtrinh.getMaLichTrinh();
-	       
-	      
+
+
 	             service.set("maLichTrinh", maLichTrinh);
 	            // Lưu đối tượng vào dịch vụ
-	             
-	             
+
+
 	    	model.addAttribute("lichtrinh",lichtrinh);
-	    	
+
 	     return "layout/datlichkham";
 	    }
-
-	 
-	
 	 
 	 
 	 

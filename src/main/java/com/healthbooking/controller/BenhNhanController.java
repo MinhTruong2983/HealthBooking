@@ -2,10 +2,15 @@ package com.healthbooking.controller;
 
 import java.util.List;
 
+import com.healthbooking.dao.LichHenDao;
+import com.healthbooking.dao.LichTrinhDao;
+import com.healthbooking.entity.LichHen;
+import com.healthbooking.entity.LichTrinh;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -23,13 +28,37 @@ public class BenhNhanController {
 	@Autowired
 	private BenhNhanDao benhNhanDao;
 
+	@Autowired
+	private LichHenDao lichHenDao;
+
 	@GetMapping("/HealthBooking/trang-ca-nhan")
 	public String profile(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		String username = authentication.getName();
-		BenhNhan benhNhan = benhNhanDao.findByEmail(username);
-		model.addAttribute("bn", benhNhan);
-		return "layout/trang-ca-nhan";
+
+		// Kiểm tra xác thực
+		if (authentication.isAuthenticated() && authentication.getPrincipal() instanceof UserDetails) {
+			String username = authentication.getName();
+
+			// Lấy thông tin bệnh nhân dựa trên email
+			BenhNhan benhNhan = benhNhanDao.findByEmail(username);
+
+			// Kiểm tra null để tránh lỗi
+			if (benhNhan != null) {
+				// Lấy danh sách lịch hẹn dựa trên mã bệnh nhân
+				List<LichHen> lichHens = lichHenDao.findByMaBenhNhan_Email(benhNhan.getEmail());
+
+				System.out.println(lichHens);
+
+//                // Thêm danh sách lịch hẹn vào model
+				model.addAttribute("lichHens", lichHens);
+
+				// Trả về tên trang cá nhân (sửa lại nếu tên trang không phải "index")
+				return "layout/trang-ca-nhan";
+			}
+		}
+
+		// Trả về trang lỗi hoặc trang đăng nhập nếu cần
+		return "redirect:/HealthBooking/login";
 	}
 
 	@GetMapping("/HealthBooking/danh-sach/benh-nhan/{patientsID}")

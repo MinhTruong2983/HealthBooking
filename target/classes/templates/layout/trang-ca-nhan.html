@@ -22,41 +22,35 @@
 
 <main style="min-height: 30vh;">
     <div class="container">
-        <form class="row" th:action="@{/HealthBooking/trang-ca-nhan}" th:object="${bn}" th:method="post">
+       <!-- <form class="row" th:action="@{/HealthBooking/trang-ca-nhan}" th:object="${bn}" th:method="post">
             <div class="col-4 px-5 bg-warning">
                 <div class="card bg-warning border-0 mt-5">
                     <img th:src="@{'/img/' + *{hinhAnh}}" class="card-img-top rounded-pill" alt="...">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <label for="avatar" class="form-label">Chọn ảnh đại diện của bạn</label>
-                            <input class="form-control" type="file" id="avatar">
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="col-8 p-5 bg-warning">
                 <div class="row mb-5">
                     <div class="col">
                         <label for="fullName" class="fw-bold form-label">Họ và tên</label>
-                        <input type="text" class="form-control" id="fullName" placeholder="Họ và tên" th:field="*{hoVaTen}">
+                        <input type="text" class="form-control" id="fullName" placeholder="Họ và tên" th:field="*{hoVaTen}" disabled>
                     </div>
                     <div class="col">
                         <label class="fw-bold form-label">Giới tính</label>
                         <div class="">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="male" th:value="'Nam'" th:field="*{gioiTinh}">
+                                <input class="form-check-input" type="radio" name="gender" id="male" th:value="'Nam'" th:field="*{gioiTinh}" disabled>
                                 <label class="form-check-label" for="male">
                                     Nam
                                 </label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="female" th:value="'Nu'" th:field="*{gioiTinh}">
+                                <input class="form-check-input" type="radio" name="gender" id="female" th:value="'Nu'" th:field="*{gioiTinh}" disabled>
                                 <label class="form-check-label" for="female">
                                     Nữ
                                 </label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="gender" id="unknown" th:value="'Khac'" th:field="*{gioiTinh}">
+                                <input class="form-check-input" type="radio" name="gender" id="unknown" th:value="'Khac'" th:field="*{gioiTinh}" disabled>
                                 <label class="form-check-label" for="unknown">
                                     Không muốn tiết lộ
                                 </label>
@@ -67,34 +61,87 @@
                 <div class="row mb-5">
                     <div class="col">
                         <label for="email" class="fw-bold form-label">Email</label>
-                        <input type="email" class="form-control" id="email" placeholder="Nhập email của bạn" th:field="*{email}">
+                        <input type="email" class="form-control" id="email" placeholder="Nhập email của bạn" th:field="*{email}" disabled>
                     </div>
                     <div class="col">
                         <label for="phone" class="fw-bold form-label">Số điện thoại</label>
-                        <input type="text" class="form-control" id="phone" placeholder="Nhập số điện thoại của bạn" th:field="*{soDienThoai}">
+                        <input type="text" class="form-control" id="phone" placeholder="Nhập số điện thoại của bạn" th:field="*{soDienThoai}" disabled>
                     </div>
                 </div>
                 <div class="row mb-5">
                     <div class="col-md-2">
                         <label for="age" class="fw-bold form-label">Tuổi</label>
-                        <input type="text" class="form-control" id="age" placeholder="Nhập tuổi" th:field="*{tuoi}">
+                        <input type="text" class="form-control" id="age" placeholder="Nhập tuổi" th:field="*{tuoi}" disabled>
                     </div>
                     <div class="col-md-10">
                         <label for="address" class="fw-bold form-label">Địa chỉ</label>
-                        <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ của bạn" th:field="*{diaChi}">
+                        <input type="text" class="form-control" id="address" placeholder="Nhập địa chỉ của bạn" th:field="*{diaChi}" disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col"></div>
                     <div class="col">
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a th:href="@{|/HealthBooking/trang-ca-nhan/edit/${maBenhNhan}|}" class="btn btn-danger me-md-2 text-white">Lưu</a>
+                            <a th:href="@{|/HealthBooking/trang-ca-nhan/edit/${maBenhNhan}|}" class="btn btn-danger me-md-2 text-white">Chỉnh sửa thông tin</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
+        </form>-->
     </div>
+    <div class="container">
+        <div th:if="${not #lists.isEmpty(lichHens)}">
+            <div th:each="lichHen : ${lichHens}" class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-3 p-5">
+                        <img src="https://bookingcare.vn/_next/static/media/ic_kham.b8b58dd8.png" class="img-fluid rounded-start my-3 mx-5" alt="...">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <h5 class="card-title py-2">
+                                        <strong>Bệnh nhân:</strong>
+                                        <span th:text="${lichHen.maBenhNhan != null ? lichHen.maBenhNhan.hoVaTen : ''}"></span>
+                                    </h5>
+                                </div>
+                                <div class="col d-flex justify-content-end">
+                                    <div class="d-grid gap-2 d-md-block">
+                                        <button class="btn btn-primary" type="button">Thay đổi</button>
+                                        <button class="btn btn-danger" type="button">Hủy lịch</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="card-text">
+                                <strong>Bác sĩ khám:</strong>
+                                <span th:if="${lichHen.maLichTrinh != null && lichHen.maLichTrinh.maBacSi != null}">
+                                <strong th:text="${lichHen.maLichTrinh.maBacSi.tenBacSi}"></strong>
+                                chuyên khoa
+                                <strong><i th:text="${lichHen.maLichTrinh.maBacSi.chuyenKhoa != null ? lichHen.maLichTrinh.maBacSi.chuyenKhoa.tenChuyenKhoa : ''}"></i></strong>
+                            </span>
+                            </p>
+                            <p class="card-text">
+                                <strong>Nơi khám:</strong>
+                                <span th:text="${lichHen.maLichTrinh != null ? lichHen.maLichTrinh.maBacSi.coSoYTe.tenCoSoYTe : ''}"></span>
+                            </p>
+                            <p class="card-text">
+                                <strong>Thời gian:</strong>
+                                <span th:if="${lichHen.maLichTrinh != null}">
+                                <span th:text="${lichHen.maLichTrinh.thoigianbatdau + '-' + lichHen.maLichTrinh.thoigianketthuc}"></span>
+                                <i th:text="${lichHen.maLichTrinh.ngayLamViec}"></i>
+                            </span>
+                            </p>
+                            <p class="card-text">
+                                <small class="text-body-secondary">Cập nhật lần cuối 3 phút trước bởi <strong>Người dùng</strong></small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div th:if="${#lists.isEmpty(lichHens)}">
+            <p class="text-center">Không có lịch hẹn nào được tìm thấy.</p>
+        </div>
 </main>
 
 <footer th:insert="~{/layout/footer.html::footerFragment}"></footer>

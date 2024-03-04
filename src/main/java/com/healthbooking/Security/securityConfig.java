@@ -65,7 +65,7 @@ public class securityConfig extends WebSecurityConfigurerAdapter{
 		.tokenValiditySeconds(86400);
 		
 		http.logout()
-		.logoutUrl("/HealthBooking/logoff")
+		.logoutUrl("/HealthBooking/logout")
 		.logoutSuccessUrl("/HealthBooking/login");
 		
 	}
