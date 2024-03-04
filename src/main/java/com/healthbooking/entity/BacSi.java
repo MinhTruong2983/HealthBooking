@@ -57,7 +57,7 @@ import lombok.Data;
 		     private CoSoYTe coSoYTe;
 
 		     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-		     @JoinColumn(name = "machuyenKhoa")
+		     @JoinColumn(name = "maChuyenKhoa")
 		     private ChuyenKhoa chuyenKhoa;
 
 		     @OneToMany(mappedBy = "maBacSi", cascade = CascadeType.ALL)
