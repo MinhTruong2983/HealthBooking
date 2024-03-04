@@ -23,7 +23,5 @@ public class TaiKhoan {
 	    private String matKhau;
 	    @Column(columnDefinition = "nvarchar(255)")
 	    private String quyen;
-	 
-	 
 
 }

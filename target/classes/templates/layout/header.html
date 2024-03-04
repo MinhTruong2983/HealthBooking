@@ -1,109 +1,78 @@
 
-   
-   
-         <th:block th:unless="${#request.remoteUser}">
-       <ul class="navbar-nav">
+<th:block th:unless="${#request.remoteUser}">
+    <ul class="navbar-nav">
         <li class="nav-item">
             <a th:href="@{/security/login}" class="nav-link">
-                <i class="fa fa-user fa-lg"></i> <!-- Thay thế bằng icon user -->
+                <i class="fa fa-user fa-lg"></i>
             </a>
         </li>
     </ul>
-  </th:block>
-
-
-        
-        
-        <header class="h-head mb-5" th:fragment="headerFragment">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary h-100">
-                <div class="container">
-                    <a class="navbar-brand" href="/HealthBooking" style="width: 200px; height: 48px;">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-pulse"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
-                        <strong>HealthBooking</strong>
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
+</th:block>
+<header class="h-head mb-5" th:fragment="headerFragment">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary h-100">
+        <div class="container">
+            <a class="navbar-brand" href="/HealthBooking" style="width: 200px; height: 48px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-heart-pulse"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/></svg>
+                <strong>HealthBooking</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/HealthBooking">Trang chủ</a>
-                        </li>
-                        <li class="nav-item">
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" >Sống khỏe</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Dịch vụ
-                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Dịch vụ</a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="/HealthBooking/danh-sach/chuyenkhoa">Chuyên khoa</a></li>
-                            <li><a class="dropdown-item" href="/HealthBooking/bac-si/danh-sach">Bác sĩ</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="/HealthBooking/coso-yte/danh-sach">Cơ sở y tế</a></li>
+                            <li>
+                                <a class="dropdown-item" href="/HealthBooking/danh-sach/chuyenkhoa">Chuyên khoa</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="/HealthBooking/bac-si/danh-sach">Bác sĩ</a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider"></li>
+                            <li>
+                                <a class="dropdown-item" href="/HealthBooking/coso-yte/danh-sach">Cơ sở y tế</a>
+                            </li>
                         </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-primary" type="submit">Search</button>
-                    </form>
-                    <ul class="navbar-nav ms-4 me-2" >
-                    
-                     
-
-
-<li class="nav-item">
-    <th:block th:if="${#request.remoteUser != null}">
-        <a class="nav-link d-flex flex-column align-items-center" th:href="@{/profile}">
-            <!-- Thay đổi biểu tượng user theo ý của bạn -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <span class="fst-normal fs-6" th:text="${#request.remoteUser}"></span>
-        </a>
-         
-    </th:block>
-    
-
-    <th:block th:unless="${#request.remoteUser != null}">
-        <a class="nav-link d-flex flex-column align-items-center" th:href="@{/HealthBooking/login}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-            <span class="fst-normal fs-6">Đăng nhập</span>
-        </a>
-    </th:block>
-    
- 
-
-   </li>
-   <li>
-	      <th:block th:if="${#request.remoteUser != null}">
-     <a th:href="@{/HealthBooking/logoff}" class="nav-link">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; display: block; margin: 0 auto;">
-        <path d="M13 17l4 4 4-4m-4-5V2h-4v14m-3 5H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8"></path>
-    </svg>
-    <span class="fst-normal fs-6 text-center" style="display: block; margin-top: 4px;">Đăng Xuất</span>
-    </a>
-
-         </th:block>
-   </li>
-
-
-                    </ul>
-                    </div>
-                </div>
-            </nav>
-            
-   
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        </header>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ms-4 me-2" >
+                    <li class="nav-item">
+                        <th:block th:if="${#request.remoteUser != null}">
+                            <a class="nav-link d-flex flex-column align-items-center" href="/HealthBooking/trang-ca-nhan">
+                                <!--                            <a class="nav-link d-flex flex-column align-items-center" th:href="@{/HealthBooking/trang-ca-nhan/{maBenhNhan}(maBenhNhan=${benhNhan.maBenhNhan})}" th:method="get">-->
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <span class="fst-normal fs-6" th:text="${#request.remoteUser}"></span>
+                            </a>
+                        </th:block>
+                        <th:block th:unless="${#request.remoteUser != null}">
+                            <a class="nav-link d-flex flex-column align-items-center" th:href="@{/HealthBooking/login}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                <span class="fst-normal fs-6">Đăng nhập</span>
+                            </a>
+                        </th:block>
+                    </li>
+                    <li>
+                        <th:block th:if="${#request.remoteUser != null}">
+                            <a th:href="@{/HealthBooking/logout}" class="nav-link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; display: block; margin: 0 auto;"><path d="M13 17l4 4 4-4m-4-5V2h-4v14m-3 5H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v8"></path></svg>
+                                <span class="fst-normal fs-6 text-center" style="display: block; margin-top: 4px;">Đăng Xuất</span>
+                            </a>
+                        </th:block>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

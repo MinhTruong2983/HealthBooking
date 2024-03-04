@@ -11,7 +11,11 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.healthbooking.dao.CoSoYTeDao;
+import com.healthbooking.entity.BenhNhan;
+import com.healthbooking.entity.CoSoYTe;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,7 +35,10 @@ public class BacSiController {
 
 	@Autowired
 	BacSiDao doctorDao;
-	
+
+	@Autowired
+	CoSoYTeDao coSoYTeDao;
+
 	@Autowired
 	LichTrinhDao lichTrinhDao;
 	
@@ -40,9 +47,9 @@ public class BacSiController {
 		List<BacSi> list = doctorDao.findAll();
 		model.addAttribute("list" ,list );
 		 // Lấy danh sách khu vực 
-			List<String> listKhuVuc = new ArrayList<>(Arrays.asList("TP. Hồ Chí Minh", "Đà Nẵng", "Hà Nội"));
-	        model.addAttribute("listKhuVuc", listKhuVuc);
- 	return "layout/danhsachbacsi";
+		List<String> listKhuVuc = new ArrayList<>(Arrays.asList("TP. Hồ Chí Minh", "Đà Nẵng", "Hà Nội"));
+		model.addAttribute("listKhuVuc", listKhuVuc);
+		return "layout/danhsachbacsi";
 	}
 	
 	
@@ -108,9 +115,8 @@ public class BacSiController {
 
         return uniqueNgays;
     }
-	 
 
-	
+
 
 
 	

@@ -244,26 +244,23 @@ public class LichHenController {
 	                                      @RequestParam("vnp_Amount") String vnp_Amount,
 	                                      @RequestParam("vnp_SecureHash") String vnp_SecureHash) {
 
+				Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+				String username = authentication.getName();
+				BenhNhan benhNhan = benhNhanDao.findByEmail(username);
+
+				int maLichTrinh = service.get("maLichTrinh");
+
+				LichTrinh lichTrinhFinal = lichTrinhDao.getById(maLichTrinh);
+
+				LichHen lichHenFinal = service.get("lichHenFinal1");
+
+				lichHenFinal.setMaLichTrinh(lichTrinhFinal);
+				lichHenFinal.setMaBenhNhan(benhNhan);
+				lichHenDao.save(lichHenFinal);
+				model.addAttribute("lichhen", lichHenFinal);
 		 
-		   Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-	         String username = authentication.getName();
-	         BenhNhan benhNhan = benhNhanDao.findByEmail(username);
-	         
-             int maLichTrinh = service.get("maLichTrinh");
-	         
-	         LichTrinh lichTrinhFinal = lichTrinhDao.getById(maLichTrinh);
-	         
-	     	 LichHen lichHenFinal = service.get("lichHenFinal1");
-		 
-	      lichHenFinal.setMaLichTrinh(lichTrinhFinal);
-		 lichHenFinal.setMaBenhNhan(benhNhan);
-		 lichHenDao.save(lichHenFinal); 
-//		 System.out.println(lichHenFinal);
-        
-         model.addAttribute("lichhen", lichHenFinal);
-		 
-	         // Hiển thị trang thanh toán thành công
-	         return "layout/thanhtoanthanhcong";
+			// Hiển thị trang thanh toán thành công
+			return "layout/thanhtoanthanhcong";
 	    
 	 }
 
