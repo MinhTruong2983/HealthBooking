@@ -71,8 +71,8 @@
                                 </div>
                                 <div class="col d-flex justify-content-end">
                                     <div class="d-grid gap-2 d-md-block">
-                                        <button class="btn btn-primary" type="button">Thay đổi</button>
-                                        <button class="btn btn-danger" type="button">Hủy lịch</button>
+                                        <button class="btn btn-primary" type="button">Hồ sơ Bệnh Nhân</button>
+                                        <button class="btn btn-danger" type="button">Trở về</button>
                                       </div>
                                 </div>
                               </div>
@@ -91,7 +91,12 @@
                                 </span>
                                  <i th:text="${lichhen.maLichTrinh.ngayLamViec}"></i>      
                               </p>
-                              <p class="card-text"><small class="text-body-secondary">Cập nhật lần cuối 3 phút trước bởi <strong>Người dùng</strong></small></p>
+                              
+                                <p class="card-text">
+                                <strong>Giá Tiền: </strong>
+                                 <strong th:text="${#numbers.formatDecimal(lichtrinh.maBacSi.gia, 0, 'COMMA', 0, 'POINT')}"></strong> <strong>VND</strong>
+
+                              </p>
                             </div>
                           </div>
                         </div>

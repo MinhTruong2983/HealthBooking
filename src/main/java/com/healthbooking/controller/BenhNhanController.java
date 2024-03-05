@@ -47,7 +47,8 @@ public class BenhNhanController {
 				// Lấy danh sách lịch hẹn dựa trên mã bệnh nhân
 				List<LichHen> lichHens = lichHenDao.findByMaBenhNhan_Email(benhNhan.getEmail());
 
-				System.out.println(lichHens);
+//              // Thêm danh sách lịch hẹn vào model
+				model.addAttribute("benhNhan", benhNhan);
 
 //                // Thêm danh sách lịch hẹn vào model
 				model.addAttribute("lichHens", lichHens);
@@ -61,20 +62,6 @@ public class BenhNhanController {
 		return "redirect:/HealthBooking/login";
 	}
 
-	@GetMapping("/HealthBooking/danh-sach/benh-nhan/{patientsID}")
-	public BenhNhan getOne(@PathVariable("patientsID") int patientsID ) {
-		return benhNhanDao.findById(patientsID).get();
-	}
-
-//	@GetMapping("/HealthBooking/danh-sach/benh-nhan")
-//	public List<BenhNhan> getAll() {
-// 		return benhNhanDao.findAll();
-//	}
-//
-//	@GetMapping("/HealthBooking/danh-sach/benh-nhan/{patientsID}")
-//	public BenhNhan getOne(@PathVariable("patientsID") int patientsID ) {
-//		return benhNhanDao.findById(patientsID).get();
-//	}
 	
 	
 }

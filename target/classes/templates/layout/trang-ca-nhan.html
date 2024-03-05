@@ -20,11 +20,50 @@
 <body>
 <header th:insert="~{/layout/header.html::headerFragment}"></header>
 
+
 <main style="min-height: 30vh;">
+	<div class="col-3" >
+	        <div class="container" >
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb"  style="background-color: white;">
+              <li class="breadcrumb-item">
+                <a class="text-decoration-none" href="/HealthBooking">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-home"
+                  >
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                  </svg>
+                  <span>Trang chủ</span>
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+               Hồ sơ
+              </li>
+            </ol>
+          </nav>
+        </div>
+	</div>
     <div class="container">
-       <!-- <form class="row" th:action="@{/HealthBooking/trang-ca-nhan}" th:object="${bn}" th:method="post">
+		
+		
+        <form class="row" th:action="@{/HealthBooking/trang-ca-nhan}" th:object="${benhNhan}" th:method="post">
             <div class="col-4 px-5 bg-warning">
+				
+				
+    
+
                 <div class="card bg-warning border-0 mt-5">
+					
                     <img th:src="@{'/img/' + *{hinhAnh}}" class="card-img-top rounded-pill" alt="...">
                 </div>
             </div>
@@ -87,14 +126,16 @@
                     </div>
                 </div>
             </div>
-        </form>-->
+        </form>
     </div>
-    <div class="container">
+    
+    <div class="container pt-5">
+		<h3> Lịch khám của bạn</h3>
         <div th:if="${not #lists.isEmpty(lichHens)}">
             <div th:each="lichHen : ${lichHens}" class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-3 p-5">
-                        <img src="https://bookingcare.vn/_next/static/media/ic_kham.b8b58dd8.png" class="img-fluid rounded-start my-3 mx-5" alt="...">
+                        <img th:src="@{/img/{image}(image=${lichHen.maLichTrinh.maBacSi.hinhAnh})}" class="img-fluid rounded-start my-3 mx-5" alt="...">
                     </div>
                     <div class="col-md-9">
                         <div class="card-body">
@@ -124,6 +165,11 @@
                                 <strong>Nơi khám:</strong>
                                 <span th:text="${lichHen.maLichTrinh != null ? lichHen.maLichTrinh.maBacSi.coSoYTe.tenCoSoYTe : ''}"></span>
                             </p>
+                                 <p class="card-text">
+                                <strong>Địa chỉ:</strong>
+                                <span th:text="${lichHen.maLichTrinh != null ? lichHen.maLichTrinh.maBacSi.coSoYTe.diaChi : ''}"></span>
+
+                            </p>
                             <p class="card-text">
                                 <strong>Thời gian:</strong>
                                 <span th:if="${lichHen.maLichTrinh != null}">
@@ -131,9 +177,19 @@
                                 <i th:text="${lichHen.maLichTrinh.ngayLamViec}"></i>
                             </span>
                             </p>
-                            <p class="card-text">
-                                <small class="text-body-secondary">Cập nhật lần cuối 3 phút trước bởi <strong>Người dùng</strong></small>
+                            
+                              <p class="card-text">
+                                <strong>Giá Tiền: </strong>
+                             <strong th:text="${#numbers.formatDecimal(lichHen.maLichTrinh.maBacSi.gia, 0, 'COMMA', 0, 'POINT')}" style="color: red;"></strong> <strong>VND</strong>
+                              </p>
+                              
+                               </p>
+                                 <p class="card-text">
+                                <strong>Hình thức thanh toán:</strong>
+                                <span th:text="${lichHen.maLichTrinh != null ? lichHen.thanhtoan : ''}"></span>
+
                             </p>
+
                         </div>
                     </div>
                 </div>
