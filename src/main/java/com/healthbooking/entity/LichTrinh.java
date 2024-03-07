@@ -36,7 +36,7 @@ import lombok.Data;
 	    private LocalTime thoigianketthuc;
 	
 	    @Column(columnDefinition = "nvarchar(max)")
-	    private String TrangThai;
+	    private String trangThai;
 	
 	    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	    @JoinColumn(name = "maBacSi", referencedColumnName = "maBacSi", insertable = false, updatable = false)

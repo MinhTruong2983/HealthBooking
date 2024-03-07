@@ -14,9 +14,13 @@
     
   </head>
   <body>
-    <div class="container main">
-
+	  
+	   <div  style="background-color: #CCFFFF;">
         <header th:insert="~{/layout/header.html::headerFragment}"></header>
+        
+ </div>
+ 
+    <div class="container main">
       	  <main>
           <div class="card mb-3" th:each="bacsichuyenkhoa : ${bacsichuyenkhoa}">
             <div class="row g-0">
@@ -97,14 +101,13 @@
                       
                          <div class="container text-center p-0">
                          <div class="row row-cols-lg-5 gy-4" >
-							
-
-                  
                   <div class="col" th:each="lichTrinh : ${bacsichuyenkhoa.lichTrinh}">
+					  
         <a th:href="@{/HealthBooking/Dat-Lich-Kham/{id}(id=${lichTrinh.maLichTrinh})}">
         <button class="btn btn-primary" type="button" 
                 th:text="${#temporals.format(lichTrinh.thoigianbatdau, 'HH:mm')} + ' - ' + ${#temporals.format(lichTrinh.thoigianketthuc, 'HH:mm')}">
         </button>
+        
         </a>
                   </div>
 

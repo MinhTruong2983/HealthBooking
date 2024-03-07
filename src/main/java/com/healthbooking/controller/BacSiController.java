@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import com.healthbooking.dao.CoSoYTeDao;
@@ -47,6 +48,7 @@ public class BacSiController {
 	@GetMapping("/HealthBooking/bac-si/danh-sach")
 	public String getAll( Model model ) {
 		List<BacSi> list = doctorDao.findAll();
+		
 		model.addAttribute("list" ,list );
 		 // Lấy danh sách khu vực 
 		List<String> listKhuVuc = new ArrayList<>(Arrays.asList("TP. Hồ Chí Minh", "Đà Nẵng", "Hà Nội"));
@@ -60,7 +62,7 @@ public class BacSiController {
 	@GetMapping("/HealthBooking/bac-si/danh-sach{khuvuc}")
 	public String bacsiKhuVuc( Model model ,@RequestParam(name = "khuVuc", required = false) String khuVuc) {
 		List<BacSi> listBSkhuVuc = doctorDao.findByKhuVuc(khuVuc);
-		System.out.println(khuVuc);
+		
 		model.addAttribute("list" ,listBSkhuVuc );
 		 // Lấy danh sách khu vực 
 		List<String> listKhuVuc = new ArrayList<>(Arrays.asList("TP. Hồ Chí Minh", "Đà Nẵng", "Hà Nội"));
@@ -77,20 +79,45 @@ public class BacSiController {
 	public String getDoctorID( Model model , @PathVariable("doctorID") int doctorID , @RequestParam(name = "ngay", required = false) String ngay) {
 		
 		BacSi doctor = doctorDao.findById(doctorID).get();
+		
 		 List<LichTrinh> lichTrinhs = doctor.getLichTrinh();
+		 
+	
+		 
 		    // Chuyển ngày từ String sang LocalDate
 		   if (ngay != null) {
 			    LocalDate ngayLamViec = LocalDate.parse(ngay, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+			    
 			  
-			    List<LichTrinh> lichTrinhList = lichTrinhDao.findByNgayLamViecAndMaBacSi(ngayLamViec, doctor);
+			    List<LichTrinh> lichTrinhList = 
+			    	lichTrinhDao.findByNgayLamViecAndMaBacSiAndTrangThai(ngayLamViec, doctor, "trống");
+			    
 			    doctor.setLichTrinh(lichTrinhList);
-		   }
-		   Set<String> upcomingDays = getUpcomingDaysFromLichTrinh(lichTrinhs);
-          
-		      System.out.println(upcomingDays);
+
+			    
+		   }else {
+			   
+			// Lấy ngày sau 7 ngày từ ngày hiện tại
+			   LocalDate currentDate = LocalDate.now();
+			   LocalDate endDate = currentDate.plusDays(7);
+
+			   List<LichTrinh> lichTrinhList7NgayTrangThaiTrong = lichTrinhDao.findByMaBacSiAndTrangThai(doctor, "trống");
+
+			// Lọc danh sách lịch trình để chỉ giữ lại những ngày nằm trong khoảng từ ngày hiện tại đến 7 ngày sau
+			lichTrinhList7NgayTrangThaiTrong = lichTrinhList7NgayTrangThaiTrong.stream()
+			    .filter(lichTrinh -> lichTrinh.getNgayLamViec().isAfter(currentDate) && lichTrinh.getNgayLamViec().isBefore(endDate))
+			    .collect(Collectors.toList());
+
+			doctor.setLichTrinh(lichTrinhList7NgayTrangThaiTrong);
+
+		
+		}
 		   
 		   
-		      model.addAttribute("bacsichuyenkhoa" , doctor);    
+		   
+		     Set<String> upcomingDays = getUpcomingDaysFromLichTrinh(lichTrinhs);
+		   
+		      model.addAttribute("bacsichuyenkhoa" , doctor);   
 		      
 		      model.addAttribute("listUniqueNgays", upcomingDays);
 
@@ -100,24 +127,24 @@ public class BacSiController {
 
 	
 	
-    public Set<String> getUpcomingDaysFromLichTrinh(List<LichTrinh> lichTrinhs) {
-        Set<String> uniqueNgays = new HashSet<>();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", new Locale("vi"));
+	public Set<String> getUpcomingDaysFromLichTrinh(List<LichTrinh> lichTrinhs) {
+	    Set<String> upcomingDays = new TreeSet<>();
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy", new Locale("vi"));
 
-        LocalDate currentDate = LocalDate.now();
-        LocalDate endDate = currentDate.plusDays(7);
+	    LocalDate currentDate = LocalDate.now();
+	    LocalDate endDate = currentDate.plusDays(7);
 
-        for (LichTrinh lichTrinh : lichTrinhs) {
-            LocalDate ngayLamViec = lichTrinh.getNgayLamViec();
+	    for (LichTrinh lichTrinh : lichTrinhs) {
+	        LocalDate ngayLamViec = lichTrinh.getNgayLamViec();
 
-            // Kiểm tra xem ngày từ thuộc tính ngayLamViec có nằm trong khoảng 7 ngày từ ngày hiện tại không
-            if (ngayLamViec.isAfter(currentDate) && ngayLamViec.isBefore(endDate)) {
-                uniqueNgays.add(ngayLamViec.format(formatter));
-            }
-        }
+	        // Kiểm tra xem ngày từ thuộc tính ngayLamViec có nằm trong khoảng 7 ngày từ ngày hiện tại không
+	        if (ngayLamViec.isAfter(currentDate) && ngayLamViec.isBefore(endDate)) {
+	            upcomingDays.add(ngayLamViec.format(formatter));
+	        }
+	    }
 
-        return uniqueNgays;
-    }
+	    return upcomingDays;
+	}
 
 
 	

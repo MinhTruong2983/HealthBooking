@@ -23,9 +23,10 @@
     <div class="container main">
       
       
-      
+       <div  style="background-color: #CCFFFF;">
         <header th:insert="~{/layout/header.html::headerFragment}"></header>
-
+        
+ </div>
 
       <main>
         <div class="container">
@@ -62,7 +63,7 @@
             </ol>
           </nav>
         </div>
-        <div class="container">
+       <!-- <div class="container">
           <p class="d-inline-flex gap-1">
             <a
               class="btn btn-primary fw-bold"
@@ -152,15 +153,21 @@
             </div>
           </div>
         </div>
+-->
+   <!--         <div class="container">
+    <form th:action="@{/HealthBooking/danh-sach/chuyenkhoa/khuvuc" th:method="get">
+        <select class="form-select w-50 fw-bold" name="khuVuc" onchange="this.form.submit()">
+            <option selected disabled>Khu Vực</option>
+            <option th:each="khuVuc : ${listKhuVuc}" 
+                    th:value="${khuVuc}" 
+                    th:text="${khuVuc}"
+                 th:selected="${#strings.equals(khuVuc, selectedKhuVuc)}">
 
-        <div class="container">
-          <select class="form-select" style="width: 12rem">
-            <option selected>Khu vực</option>
-            <option value="1">TP. Hồ Chí Minh</option>
-            <option value="2">Đà Nẵng</option>
-            <option value="3">Hà Nội</option>
-          </select>
-        </div>
+            </option>
+        </select>
+ 
+    </form>
+    </div>-->
         
           <div class="card mb-3" th:each="bacsichuyenkhoa : ${bacsichuyenkhoa}">
             <div class="row g-0">

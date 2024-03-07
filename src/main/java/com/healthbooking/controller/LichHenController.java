@@ -1,6 +1,7 @@
 package com.healthbooking.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
@@ -128,7 +129,7 @@ public class LichHenController {
 		         
 		         lichHenFinal1.setMieuta(lichHen.getMieuta());
 		         
-		         lichHenFinal1.setTrangThai("Chờ xác nhận!");
+		         lichHenFinal1.setTrangThai("Chờ xác nhận");
 		        
 		        long amount = lichTrinhFinal.getMaBacSi().getGia().longValue()*100;
 		        
@@ -220,16 +221,16 @@ public class LichHenController {
 	         lichHenFinal.setMaLichTrinh(lichTrinhFinal);
 	         
 	         lichHenFinal.setMieuta(lichHen.getMieuta());
-	         lichHenFinal.setTrangThai("Chờ xác nhận!");
+	         lichHenFinal.setTrangThai("Chờ xác nhận");
 	         
 	         lichHenFinal.setThanhtoan("Tiền Mặt");
 	       
-			lichHenDao.save(lichHenFinal); 
+//			 lichHenDao.save(lichHenFinal); 
 	         
 	         model.addAttribute("lichhen", lichHenFinal);
 
 
-	         return "layout/lichkhamdadat";
+	         return "layout/lichkhamdadattienmat";
 	     }
 	 
 	 
@@ -248,12 +249,24 @@ public class LichHenController {
 				int maLichTrinh = service.get("maLichTrinh");
 
 				LichTrinh lichTrinhFinal = lichTrinhDao.getById(maLichTrinh);
+				
+				lichTrinhFinal.setTrangThai("Được đặt");
 
 				LichHen lichHenFinal = service.get("lichHenFinal1");
 
 				lichHenFinal.setMaLichTrinh(lichTrinhFinal);
 				lichHenFinal.setMaBenhNhan(benhNhan);
+							
+				   // Giả sử bạn có một giá trị BigDecimal
+		        BigDecimal giaBigDecimal = lichTrinhFinal.getMaBacSi().getGia();
+
+		        // Chuyển đổi BigDecimal thành long bằng phương thức longValue()
+				lichHenFinal.setGiakham(giaBigDecimal.longValue()); 
+				
+				System.out.println(lichHenFinal.getGiakham());
+				
 				lichHenDao.save(lichHenFinal);
+				
 				model.addAttribute("lichhen", lichHenFinal);
 		 
 			// Hiển thị trang thanh toán thành công

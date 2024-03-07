@@ -19,43 +19,18 @@
 <body>
     <div class="container main">
 		
-		  <header th:insert="~{/layout/header.html::headerFragment}"></header>
-       
+		  <div  style="background-color: #CCFFFF;">
+        <header th:insert="~{/layout/header.html::headerFragment}"></header>
+        
+ </div>
 
 
        <main>
-            <div class="container">
-                <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb">
-                    <li class="breadcrumb-item">
-                      <a class="text-decoration-none" href="#">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          width="17"
-                          height="17"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          class="lucide lucide-home"
-                        >
-                          <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                          <polyline points="9 22 9 12 15 12 15 22" />
-                        </svg>
-                        <span>Home</span>
-                      </a>
-                    </li>
-                    <li class="breadcrumb-item active" aria-current="page">
-                      Lịch hẹn đã đặt
-                    </li>
-                  </ol>
-                </nav>
-              </div>
+           
               
               <div class="container">
-                    <div class="card mb-3">
+                    <div class="card mb-3" style="background-color: floralwhite;">
+						<h4 class="text-center pt-2"> Đặt khám thành công!</h4>
                         <div class="row g-0">
                           <div class="col-md-3 p-5">
                             <img src="https://bookingcare.vn/_next/static/media/ic_kham.b8b58dd8.png" class="img-fluid rounded-start my-3 mx-5" alt="...">
@@ -64,39 +39,33 @@
                             <div class="card-body">
                               <div class="row mb-3">
                                 <div class="col">
-                                    <h5 class="card-title py-2">
-                                        <strong>Bệnh nhân: </strong>
-                                        <span th:text="${lichhen.maBenhNhan.hoVaTen}"></span>
-                                    </h5>
-                                </div>
-                                <div class="col d-flex justify-content-end">
-                                    <div class="d-grid gap-2 d-md-block">
-                                        <button class="btn btn-primary" type="button">Hồ sơ Bệnh Nhân</button>
-                                        <button class="btn btn-danger" type="button">Trở về</button>
-                                      </div>
+                    <h6 class="card-title py-2">
+    <strong>Lưu ý:</strong>
+    <p>
+        Lịch hẹn của bạn đang được bác sĩ xét duyệt, thời gian xử lý có thể mất tối đa 24 giờ.
+        <br>Nếu có ý kiến hoặc thắc mắc, vui lòng liên hệ với chúng tôi qua:
+    </p>
+    <p>
+        <strong>Email:</strong> <a href="mailto:support@healthbooking.vn">support@healthbooking.vn</a> (Thời gian làm việc: 7h - 18h)
+        <br>
+        <strong>Điện thoại:</strong> <a href="tel:+842473012468">024-7301-2468</a> (Thời gian làm việc: 7h - 18h)
+    </p>
+    <p>Cảm ơn bạn đã sử dụng dịch vụ của <strong>HealthBooking!</strong></p>
+    </h6>
+
                                 </div>
                               </div>
-                              <p class="card-text">
-                                <strong>Bác sĩ khám: </strong>
-                                <span><strong th:text="${lichhen.maLichTrinh.maBacSi.tenBacSi}"></strong> chuyên khoa <strong><i th:text="${lichhen.maLichTrinh.maBacSi.chuyenKhoa.tenChuyenKhoa}"> </i></strong></span>
-                              </p>
-                              <p class="card-text">
-                                <strong>Nơi khám: </strong>
-                                <span th:text="${lichhen.maLichTrinh.maBacSi.coSoYTe.tenCoSoYTe}"></span>
-                              </p>
-                              <p class="card-text">
-                                <strong>Thời gian: </strong>
-                                <span
-                                th:text="${lichhen.maLichTrinh.thoigianbatdau}+'-'+${lichhen.maLichTrinh.thoigianketthuc}">                            
-                                </span>
-                                 <i th:text="${lichhen.maLichTrinh.ngayLamViec}"></i>      
-                              </p>
-                              
-                                <p class="card-text">
-                                <strong>Giá Tiền: </strong>
-                                 <strong th:text="${#numbers.formatDecimal(lichtrinh.maBacSi.gia, 0, 'COMMA', 0, 'POINT')}"></strong> <strong>VND</strong>
-
-                              </p>
+                              <div class="col d-flex text-center">
+    <div class="d-grid gap-2 d-md-block">
+		<a href="/HealthBooking/trang-ca-nhan">
+        <button class="btn btn-primary" type="button">Xem chi tiết</button>
+        </a>
+        <a href="/HealthBooking">
+        <button class="btn btn-danger" type="button">Thoát</button>
+        </a>
+    </div>
+</div>
+                        
                             </div>
                           </div>
                         </div>

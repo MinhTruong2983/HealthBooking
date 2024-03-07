@@ -6,10 +6,15 @@
 
 .h-head {
     height: 78px;   
+    font-family: Montserrat, sans-serif !important;
 }
 
-.h-foot {
-    height: 457px;
+body {
+   font-family: Montserrat, sans-serif !important;
+   font-size: 14px;
+    line-height: 1.5 !important;
+    outline: none !important;
+
 }
 
 .item-hover:hover {
