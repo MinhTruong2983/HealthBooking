@@ -1,74 +1,138 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <meta charset="UTF-8">
-        <title>Danh sách Bác sĩ</title>
-        <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css}" rel="stylesheet">
-        <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
-        <link rel="stylesheet" th:href="@{/css/style.css}">
-        <link rel="stylesheet" th:href="@{/cssSliderShow/style.css}">
-        <link rel="stylesheet" th:href="@{/cssSliderShow/owl.carousel.min.css}">
-        <link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css}">
-        <style>
-            #infor > td, #infor > th {
-                vertical-align: middle;
-            }
-        </style>
-    </head>
-    <body>
-    <main style="min-height: 30vh;">
-            <h1 class="text-center fw-bold">Danh sách Bác sĩ</h1>
-            <table class="table table-hover">
-                <thead>
-                <tr class="text-center">
-                    <th scope="col">#</th>
-                    <th scope="col">Hình ảnh</th>
-                    <th scope="col">Họ và tên</th>
-                    <th scope="col">Giới tính</th>
-                    <th scope="col">Địa chỉ</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Số điện thoại</th>
-                    <th scope="col">Ngày sinh</th>
-                    <th scope="col">Kinh nghiệm</th>
-                    <th scope="col">Đào tạo</th>
-                    <th scope="col">Khám và ĐT</th>
-                    <th scope="col">Giá</th>
-                    <th scope="col">Khu vực</th>
-                    <th scope="col">Cơ sở</th>
-                    <th scope="col">Chuyên khoa</th>
-                    <th scope="col">Lịch trình</th>
-                    <th scope="col">Lựa chọn</th>
-                </tr>
-                </thead>
-                <tbody>
-                    <tr class="text-center">
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                        <td>Hello</td>
-                    </tr>
-                </tbody>
-            </table>
-    </main>
+<html lang="en" xmlns:temporal="http://www.thymeleaf.org/extras/temporal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthBooking Bác Sĩ</title>
+    <link rel="shortcut icon" href="/image/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/bootstrap-5.3.2-dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../style.css">
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+	  
+	   <div  style="background-color: #003399;">
+        <header th:insert="~{/layout/bac-si/header.html::headerFragment}"></header>
+ </div>
+    <div class="container main">
+        
+
+      <main>
+     
+
+        <h3> Lịch khám của bạn</h3>
+
+        <br>
+        
+        
+         <div class="container pt-5">
+		
+        <div th:if="${not #lists.isEmpty(lichHens)}">
+            <div th:each="lichHen : ${lichHens}" class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-md-4 p-5" >
+                        <img th:src="@{/img/{image}(image=${lichHen.maBenhNhan.hinhAnh})}" class="img-fluid rounded-start my-3 mx-5" alt="..."style="height: 280px;">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <div class="row mb-3">
+                                <div class="col">
+                                    <h5 class="card-title py-2">
+                                        <strong>Bệnh nhân:</strong>
+                                        <span th:text="${lichHen.maBenhNhan != null ? lichHen.maBenhNhan.hoVaTen : ''}"></span>
+                                    </h5>
+                                    
+                                    
+                                      <p class="card-text">
+                                <strong>Thời gian:</strong>
+                                <span th:if="${lichHen.maLichTrinh != null}">
+                                <span th:text="${lichHen.maLichTrinh.thoigianbatdau + '-' + lichHen.maLichTrinh.thoigianketthuc}"></span>
+                                <i th:text="${lichHen.maLichTrinh.ngayLamViec}"></i>
+                            </span>
+                            </p>
+                                
+                              <p class="card-text">
+                                <strong>Năm sinh:</strong>
+                                <span th:text="${lichHen.maBenhNhan.tuoi}">
+                            </span>
+                            </p>
+                            
+                            <p class="card-text">
+                                <strong>Số điện thoại:</strong>
+                                <span th:text="${lichHen.maBenhNhan.soDienThoai}">
+                            </span>
+                            </p>
+
+                                 <p class="card-text">
+                                <strong>Hình thức thanh toán:</strong>
+                                <span th:text="${lichHen.maLichTrinh != null ? lichHen.thanhtoan : ''}"></span>
+                            </p>
+                            
+                            
+                               <p class="card-text">
+                                <strong>Mô tả triệu chứng:</strong>
+                                <span th:text="${lichHen.mieuta}"></span>
+                            </p>
+                            
+                            
+
+                                    
+                                    
+                                </div>
+                                <div class="col">
+				  <p class="card-text">
+                  <strong>Trạng thái lịch hẹn:</strong>
+
+                  <form th:with="lichHenId=${lichHen.maLichHen}" th:action="@{/HealthBooking/bac-si/__${lichHenId}__}" th:method="get">
 
 
-        <script th:src="@{/jsSlidershow/jquery.min.js}"></script>
-        <script th:src="@{/jsSlidershow/popper.js}"></script>
-        <script th:src="@{/jsSlidershow/bootstrap.min.js}"></script>
-        <script th:src="@{/jsSlidershow/owl.carousel.min.js}"></script>
-        <script th:src="@{/jsSlidershow/main.js}"></script>
-    </body>
+                <select class="form-select w-50 fw-bold" name="TrangThai" onchange="this.form.submit()">
+                <option th:each="TrangThai : ${lichHen.TrangThai}" 
+                  th:value="${TrangThai}" 
+                  th:text="${TrangThai}"
+                  th:disabled="${TrangThai == 'Đã hủy' }"
+                 ></option>
+
+    <option value="Đã hủy">Đã hủy</option>
+    <option value="Không Đến">Không Đến</option>
+    <option value="Đã xác nhận">Đã xác nhận</option>
+    
+</select>
+
+  <!-- Trường nhập lí do hủy -->
+    <div th:if="${lichHen.TrangThai == 'Đã hủy'}" >
+        <label for="reason" class="form-label">Lí do hủy:</label>
+
+    <textarea id="lidohuy" name="lidohuy" class="form-control w-50" rows="3" cols="50" th:text="${lichHen.lidohuy}"></textarea>
+
+
+    <button type="submit" class="btn btn-warning mt-3" style="width: 200px;">Gửi</button>
+
+    </div>
+
+
+       </form>
+         </p>
+									
+		</div>
+                                
+                               
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        
+   
+        
+      </main>
+
+      
+          <footer th:insert="~{/layout/footer.html::footerFragment}"></footer>
+      
+    </div>
+  </body>
 </html>

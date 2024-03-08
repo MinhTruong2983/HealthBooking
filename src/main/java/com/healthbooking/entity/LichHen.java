@@ -38,6 +38,9 @@ public class LichHen {
 	    
 	    @Column(columnDefinition = "nvarchar(max)")
 	    private long giakham;
+	    
+	    @Column(columnDefinition = "nvarchar(max)")
+	    private String lidohuy;
 
 	    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	    @JoinColumn(name = "maLichTrinh", referencedColumnName = "maLichTrinh")

@@ -191,15 +191,19 @@
                                 <span th:text="${lichHen.maLichTrinh != null ? lichHen.thanhtoan : ''}"></span>
 
                             </p>
+                            
+                               <p class="card-text">
+                                <strong>Trạng thái lịch hẹn:</strong>
+                                <span th:text="${lichHen.TrangThai}" style="color: blue;"></span>
+
+                            </p>
 
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div th:if="${#lists.isEmpty(lichHens)}">
-            <p class="text-center">Không có lịch hẹn nào được tìm thấy.</p>
-        </div>
+       
 </main>
 
 <footer th:insert="~{/layout/footer.html::footerFragment}"></footer>

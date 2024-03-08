@@ -7,5 +7,11 @@ import com.healthbooking.entity.LichHen;
 import java.util.List;
 
 public interface LichHenDao extends JpaRepository<LichHen, Integer>{
+	
     List<LichHen> findByMaBenhNhan_Email(String Email);
+    
+    
+    List<LichHen> findByMaLichTrinh_MaBacSi_Email(String email);    
+    
+    
 }

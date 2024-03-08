@@ -225,7 +225,7 @@ public class LichHenController {
 	         
 	         lichHenFinal.setThanhtoan("Tiền Mặt");
 	       
-//			 lichHenDao.save(lichHenFinal); 
+			 lichHenDao.save(lichHenFinal); 
 	         
 	         model.addAttribute("lichhen", lichHenFinal);
 

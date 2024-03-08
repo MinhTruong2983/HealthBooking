@@ -13,8 +13,11 @@ import java.util.TreeSet;
 import java.util.stream.Collectors;
 
 import com.healthbooking.dao.CoSoYTeDao;
+import com.healthbooking.dao.LichHenDao;
 import com.healthbooking.entity.BenhNhan;
 import com.healthbooking.entity.CoSoYTe;
+import com.healthbooking.entity.LichHen;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.security.core.Authentication;
@@ -38,6 +41,9 @@ public class BacSiController {
 
 	@Autowired
 	BacSiDao doctorDao;
+	
+	@Autowired
+	LichHenDao lichHenDao;
 
 	@Autowired
 	CoSoYTeDao coSoYTeDao;
@@ -111,10 +117,7 @@ public class BacSiController {
 			doctor.setLichTrinh(lichTrinhList7NgayTrangThaiTrong);
 
 		
-		}
-		   
-		   
-		   
+		}   
 		     Set<String> upcomingDays = getUpcomingDaysFromLichTrinh(lichTrinhs);
 		   
 		      model.addAttribute("bacsichuyenkhoa" , doctor);   
@@ -145,6 +148,59 @@ public class BacSiController {
 
 	    return upcomingDays;
 	}
+	
+	
+	@GetMapping("/HealthBooking/bac-si/lichhen")
+	public String bacsilichhen( Model model ) {
+		
+		// Lấy đối tượng Authentication từ SecurityContextHolder
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        String username = authentication.getName();
+		
+		List<LichHen> lichHen = lichHenDao.findByMaLichTrinh_MaBacSi_Email(username);
+	
+		  model.addAttribute("lichHens", lichHen);
+		
+ 	return "layout/bac-si/danhsachbacsi";
+	}
+
+	
+	 @GetMapping("/HealthBooking/bac-si/{lichHenId}")
+	public String bacsiHosothaydoi( Model model ,@PathVariable("lichHenId") int lichHenId, @RequestParam("TrangThai") String trangThai,@RequestParam(name = "lidohuy", required = false) String lidohuy) {
+		
+	LichHen lichHen = lichHenDao.findById(lichHenId).get();
+		
+	lichHen.setTrangThai(trangThai);
+	
+	lichHen.setLidohuy(lidohuy);
+	
+	lichHenDao.save(lichHen);
+
+		
+ 	return "redirect:/HealthBooking/bac-si/lichhen";
+	}
+	
+
+	 
+	 @GetMapping("/HealthBooking/bac-si/hoso")
+		public String bacsiHoso( Model model ) {
+			
+			// Lấy đối tượng Authentication từ SecurityContextHolder
+	        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+	        String username = authentication.getName();
+	        
+	    
+			BacSi bacSi = doctorDao.findByEmail(username);
+			
+			System.out.println(bacSi);
+		
+			model.addAttribute("bacSi", bacSi);
+			
+	 	return "layout/bac-si/trang-ca-nhan";
+		}
+	
 
 
 	
