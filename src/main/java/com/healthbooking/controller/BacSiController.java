@@ -2,6 +2,7 @@ package com.healthbooking.controller;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -241,21 +242,13 @@ public class BacSiController {
 			
 			 List<LichTrinh> lichTrinhs = doctor.getLichTrinh();
 			 
-		
-			 
 			    // Chuyển ngày từ String sang LocalDate
 			   if (ngay != null) {
 
 				   
 				    LocalDate ngayLamViec = LocalDate.parse(ngay, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
-				    
-				    
-				  
 				    List<LichTrinh> lichTrinhList = 
 				    	lichTrinhDao.findByNgayLamViecAndMaBacSi(ngayLamViec, doctor);
-				    
-				    
-				    
 				    
 				    doctor.setLichTrinh(lichTrinhList);
 
@@ -358,6 +351,72 @@ public class BacSiController {
 	   return "redirect:/HealthBooking/admin/bac-si/lichtrinh/" + id + "/" + bacsi;
 
 	 }
+	 
+	 
+	 
+	 
+	 @GetMapping("/HealthBooking/admin/bac-si/lichtrinh/taolichtrinh")
+		public String bacsitaolichtrinh( Model model)    {
+			// Lấy đối tượng Authentication từ SecurityContextHolder
+         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+         String username = authentication.getName();
+     
+		 BacSi bacSi = doctorDao.findByEmail(username);
+		 
+		 int maBacSiInt = bacSi.getMaBacSi();
+		 
+		 String bacsi = String.valueOf(maBacSiInt);
+		 
+		 LichTrinh lichTrinh = new LichTrinh();
+		 
+		 model.addAttribute("lichTrinh",lichTrinh);
+		 
+		 
+		 
+		// Lấy ngày sau 7 ngày từ ngày hiện tại
+		 LocalDate currentDate = LocalDate.now();
+		 LocalDate endDate = currentDate.plusDays(7);
+
+		 // Kiểm tra và tạo lịch trình cho từng ngày
+		 for (LocalDate ngayLamViec = currentDate; ngayLamViec.isBefore(endDate); ngayLamViec = ngayLamViec.plusDays(1)) {
+		     // Lấy danh sách lịch trình cho ngày hiện tại
+		     List<LichTrinh> lichTrinhList = lichTrinhDao.findByNgayLamViecAndMaBacSi(ngayLamViec,bacSi);
+
+		     
+		     
+		     System.out.println(lichTrinhList);
+		     if (lichTrinhList.isEmpty()) {
+		         // Không có lịch trình cho ngày hiện tại, tạo lịch trình cho từng khoảng thời gian
+		         for (LocalTime startTime = LocalTime.of(8, 0); startTime.isBefore(LocalTime.of(17, 0)); startTime = startTime.plusMinutes(30)) {
+		             LocalTime endTime = startTime.plusMinutes(30);
+
+		             // Tạo lịch trình và thêm vào cơ sở dữ liệu
+		             LichTrinh newLichTrinh = new LichTrinh();
+		             newLichTrinh.setNgayLamViec(ngayLamViec);
+		             newLichTrinh.setThoigianbatdau(startTime);
+		             newLichTrinh.setThoigianketthuc(endTime);
+		             newLichTrinh.setTrangThai("Trống");
+		             newLichTrinh.setMaBacSi(bacSi);
+		             
+		             System.out.println("thêm oke la" + newLichTrinh);
+		             // Các bước khác để thiết lập thông tin lịch trình
+		             lichTrinhDao.save(newLichTrinh);
+		         }
+		     }
+		     
+		 }
+
+		 
+		 return "layout/bac-si/taolichtrinh";
+
+	 }
+	 
+	 
+	 
+	 
+	 
+	 
 
 	
 }

@@ -28,11 +28,9 @@
         <div class="container">
          <div class="row">
           <div class="col-4">
-			  
-			
 		   <form th:action="@{/HealthBooking/admin/bac-si/lichtrinh/{maBacSi}(maBacSi=${bacSi.maBacSi})}" th:method="get">
      <select class="form-select  fw-bold" name="ngay" onchange="this.form.submit()" style="width: 180px;">
-    <option selected disabled>Tất cả lịch khám</option>
+    <option selected disabled>Tất cả ngày khám</option>
     <option th:each="upcomingDay : ${listUniqueNgays}" 
             th:value="${upcomingDay}"
             th:text="${upcomingDay}"
@@ -66,13 +64,11 @@
     <option value="Được đặt">Đã Đặt</option>
     
     </select>
-
-
-
-    
-    
   </form>
 
+
+
+     <a> tạo lịch trình </a>
     
 			
 			

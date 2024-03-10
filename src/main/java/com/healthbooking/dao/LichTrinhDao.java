@@ -31,5 +31,6 @@ public interface LichTrinhDao extends JpaRepository<LichTrinh, Integer>{
 	List<LichTrinh> findByMaBacSiAndTrangThaiAndNgayLamViecBetween(BacSi doctor, String trangThai,
 			LocalDate currentDate, LocalDate endDate);
 
+	
     
 }

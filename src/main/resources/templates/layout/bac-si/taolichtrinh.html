@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HealthBooking Bác Sĩ</title>
+      <link rel="icon" type="image/png" th:href="@{/img/logo.png}" sizes="64x64">
+    <link rel="shortcut icon" href="/image/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/bootstrap-5.3.2-dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../style.css">
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+
+</head>
+<body>
+	
+  <div  style="background-color: #003399;">
+        <header th:insert="~{/layout/bac-si/header.html::headerFragment}"></header>
+ </div>
+
+<main style="min-height: 30vh;">
+	<div class="col-3" >
+	        <div class="container" >
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb"  style="background-color: white;">
+              <li class="breadcrumb-item">
+                <a class="text-decoration-none" href="/HealthBooking">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="17"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-home"
+                  >
+                    <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                    <polyline points="9 22 9 12 15 12 15 22" />
+                  </svg>
+                  <span>Trang chủ</span>
+                </a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">
+               Hồ sơ
+              </li>
+            </ol>
+          </nav>
+        </div>
+	</div>
+	
+	
+
+		
+		
+		
+		<div class="container">
+  <div class="row">
+    <div class="col-6">
+  		
+  <form th:action="@{/HealthBooking/admin/bac-si/lichtrinh/trangthai/{id}(id=${lichTrinh.maLichTrinh})}" method="post">
+    <label class="fw-bold">Ngày làm việc</label>
+    <input type="date" class="form-control mt-2" id="tenBacSi" name="ngayLamViec" th:value="${lichTrinh.ngayLamViec}" readonly>
+
+    <label class="fw-bold">Giờ bắt đầu</label>
+    <input type="time" class="form-control mt-2" id="tenBacSi" name="thoigianbatdau" th:value="${lichTrinh.thoigianbatdau}" readonly>
+
+    <label class="fw-bold">Giờ kết thúc</label>
+    <input type="time" class="form-control mt-2" id="tenBacSi" name="thoigianketthuc" th:value="${lichTrinh.thoigianketthuc}" readonly>
+
+    <label class="fw-bold">Trạng thái</label>
+    <select class="form-select mt-2" id="trangThai" name="trangThai" readonly>
+        <option th:each="status : ${allStatusList}" th:value="${status}" th:text="${status}"></option>
+    </select>
+
+    <!-- Nếu muốn cho phép chỉnh sửa trạng thái, hãy xóa thuộc tính readonly ở trên -->
+    <!-- <select class="form-select mt-2" id="trangThai" name="trangThai">
+        <option th:each="status : ${allStatusList}" th:value="${status}" th:text="${status}"></option>
+    </select> -->
+
+    <!-- Nút để gửi form -->
+    <button type="submit" class="btn btn-primary mt-2">Cập nhật Trạng thái</button>
+</form>
+
+
+
+
+  		
+  		
+    </div>
+    <div class="col-6">
+      2 of 2
+    </div>
+  </div>
+</div>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    </div>    
+</main>
+
+
+
+<script th:src="@{/jsSlidershow/jquery.min.js}"></script>
+<script th:src="@{/jsSlidershow/popper.js}"></script>
+<script th:src="@{/jsSlidershow/bootstrap.min.js}"></script>
+<script th:src="@{/jsSlidershow/owl.carousel.min.js}"></script>
+<script th:src="@{/jsSlidershow/main.js}"></script>
+</body>
+</html>
