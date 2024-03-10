@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:temporal="http://www.thymeleaf.org/extras/temporal">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealthBooking Bác Sĩ</title>
+    <link rel="shortcut icon" href="/image/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/bootstrap-5.3.2-dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../style.css">
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+  </head>
+  <body>
+	  
+	   <div  style="background-color: #003399;">
+        <header th:insert="~{/layout/bac-si/header.html::headerFragment}"></header>
+ </div>
+    <div class="container main">
+        
+
+      <main>
+     
+
+        <h3> Lịch Trình của bạn</h3>
+
+        <br>
+        
+        
+        <div class="container">
+         <div class="row">
+          <div class="col-4">
+			  
+			
+		   <form th:action="@{/HealthBooking/admin/bac-si/lichtrinh/{maBacSi}(maBacSi=${bacSi.maBacSi})}" th:method="get">
+     <select class="form-select  fw-bold" name="ngay" onchange="this.form.submit()" style="width: 180px;">
+    <option selected disabled>Tất cả lịch khám</option>
+    <option th:each="upcomingDay : ${listUniqueNgays}" 
+            th:value="${upcomingDay}"
+            th:text="${upcomingDay}"
+            th:selected="${#strings.equals(upcomingDay, #request.getParameter('ngay'))}">
+
+    </option>
+    </select>          
+   
+    </form>  
+    
+    
+    
+   <form  th:action="@{/HealthBooking/admin/bac-si/lichtrinh/trangthai/{id}(id=${lichTrinh.maLichTrinh})}">
+      <label class="fw-bold">Ngày làm việc</label>
+     <input type="date" class="form-control mt-2" id="tenBacSi" th:value="${lichTrinh.ngayLamViec}" readonly>
+     <label class="fw-bold">Giờ bắt đầu</label>
+     <input type="time" class="form-control mt-2" id="tenBacSi" th:value="${lichTrinh.thoigianbatdau}" readonly>
+     <label class="fw-bold">Giờ kết thúc</label>
+     <input type="time" class="form-control mt-2" id="tenBacSi" th:value="${lichTrinh.thoigianketthuc}" readonly>
+
+
+     <label class="fw-bold">Trạng thái lịch trình</label>
+     <select class="form-select w-50 fw-bold mt-2" name="trangThai" onchange="this.form.submit()">
+                <option th:each="lichTrinh : ${lichTrinh.trangThai}" 
+                  th:value="${lichTrinh}" 
+                  th:text="${lichTrinh}"
+                
+                 ></option>
+
+    <option value="Trống">Trống</option>
+    <option value="Được đặt">Đã Đặt</option>
+    
+    </select>
+
+
+
+    
+    
+  </form>
+
+    
+			
+			
+			
+          </div>
+        
+          <div class="col-8">
+         
+        
+        <div class="container">
+ 
+     <h5>Thời gian làm việc:</h5>
+     
+     <div class="row  border">
+	 <div class="col-3 border" th:each="lichtrinh : ${bacSi.LichTrinh}">
+     <div class="  d-flex align-items-center justify-content-center" style="height: 100px;">
+        
+	
+        <a th:href="@{/HealthBooking/admin/bac-si/lichtrinh/{id}/{bacsi}(id=${lichtrinh.maLichTrinh}, bacsi=${bacSi.maBacSi})}">
+       
+        <button class="btn btn-primary" type="button" 
+                th:text="${#temporals.format(lichtrinh.thoigianbatdau, 'HH:mm')} + ' - ' + ${#temporals.format(lichtrinh.thoigianketthuc, 'HH:mm')}">
+        </button>
+        
+        </a>
+        </div>
+        
+        
+    </div>
+   
+</div>
+
+
+
+
+
+
+</div>
+         
+         
+        </div>
+        
+        
+        
+        </div>
+        </div>
+        
+        
+
+                                
+                               
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     
+        
+   
+        
+      </main>
+
+      
+       
+      
+    </div>
+  </body>
+</html>

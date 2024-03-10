@@ -47,17 +47,16 @@ public class securityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable();
 		http.authorizeRequests()
-		    .antMatchers("/HealthBooking/order/list").hasRole("bacsi")
-		    .antMatchers("/HealthBooking/admin/**").hasAnyRole("benhnhan")
-	        .antMatchers("/HealthBooking/Dat-Lich-Kham/**").authenticated() // Thêm quy tắc yêu cầu đăng nhập cho đường dẫn cụ thể
+            .antMatchers("/HealthBooking/Dat-Lich-Kham/**").authenticated() // Thêm quy tắc yêu cầu đăng nhập cho đường dẫn cụ thể
+            .antMatchers("/HealthBooking/trang-ca-nhan").hasRole("benhnhan")
+            .antMatchers("/HealthBooking/admin/bac-si/**").hasAnyRole("bacsi") 
 		    .anyRequest().permitAll();
 
-		
-	
+
 		http.formLogin()
 		.loginPage("/HealthBooking/login")
 		.loginProcessingUrl("/HealthBooking/security/login")
-		.defaultSuccessUrl("/HealthBooking/security/login/success",false)
+		.defaultSuccessUrl("/HealthBooking",false)
 		.failureUrl("/HealthBooking/security/login/error");
 		
 		

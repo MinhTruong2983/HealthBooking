@@ -35,6 +35,7 @@ import lombok.Data;
 		     private String soDienThoai;
 		     @Column(columnDefinition = "nvarchar(max)")
 		     private String gioiTinh;
+		     
 		     private int tuoi;
 		     
 		     @Column(columnDefinition = "nvarchar(max)")

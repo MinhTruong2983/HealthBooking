@@ -101,9 +101,9 @@ public class HomeController {
 
     
     
-    @GetMapping("/security/success")
-	public String logoffsuccess(Model model){
-		model.addAttribute("message","Bạn đã đăng xuất :))!");
+    @GetMapping("/HealthBooking/security/login/error")
+	public String error(Model model){
+		
 		return "layout/login";
 	}
     

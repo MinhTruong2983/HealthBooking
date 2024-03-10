@@ -32,6 +32,7 @@ import com.healthbooking.dao.BacSiDao;
 import com.healthbooking.dao.LichTrinhDao;
 import com.healthbooking.entity.BacSi;
 import com.healthbooking.entity.LichTrinh;
+import com.healthbooking.service.SessionService;
 
 
 
@@ -39,6 +40,9 @@ import com.healthbooking.entity.LichTrinh;
 @Controller
 public class BacSiController {
 
+	@Autowired
+	SessionService service;
+	
 	@Autowired
 	BacSiDao doctorDao;
 	
@@ -150,7 +154,7 @@ public class BacSiController {
 	}
 	
 	
-	@GetMapping("/HealthBooking/bac-si/lichhen")
+	@GetMapping("/HealthBooking/admin/bac-si/lichhen")
 	public String bacsilichhen( Model model ) {
 		
 		// Lấy đối tượng Authentication từ SecurityContextHolder
@@ -166,7 +170,7 @@ public class BacSiController {
 	}
 
 	
-	 @GetMapping("/HealthBooking/bac-si/{lichHenId}")
+	 @GetMapping("/HealthBooking/admin/bac-si/{lichHenId}")
 	public String bacsiHosothaydoi( Model model ,@PathVariable("lichHenId") int lichHenId, @RequestParam("TrangThai") String trangThai,@RequestParam(name = "lidohuy", required = false) String lidohuy) {
 		
 	LichHen lichHen = lichHenDao.findById(lichHenId).get();
@@ -178,12 +182,12 @@ public class BacSiController {
 	lichHenDao.save(lichHen);
 
 		
- 	return "redirect:/HealthBooking/bac-si/lichhen";
+ 	return "redirect:/HealthBooking/admin/bac-si/lichhen";
 	}
 	
 
 	 
-	 @GetMapping("/HealthBooking/bac-si/hoso")
+	 @GetMapping("/HealthBooking/admin/bac-si/hoso")
 		public String bacsiHoso( Model model ) {
 			
 			// Lấy đối tượng Authentication từ SecurityContextHolder
@@ -200,8 +204,160 @@ public class BacSiController {
 			
 	 	return "layout/bac-si/trang-ca-nhan";
 		}
-	
+	 
+	 
+	 @GetMapping("/HealthBooking/admin/bac-si/lichtrinh")
+		public String bacsilichtriinh( Model model ) {
+			
+			// Lấy đối tượng Authentication từ SecurityContextHolder
+	        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
+	        String username = authentication.getName();
+	        
+	    
+			BacSi bacSi = doctorDao.findByEmail(username);
+			
+			Set<String> upcomingDays = getUpcomingDaysFromLichTrinh(bacSi.getLichTrinh());
+			   
+
+		    model.addAttribute("listUniqueNgays", upcomingDays);
+		
+//		    List<LichTrinh> lichTrinhs = doctorDao.findby
+		     
+			model.addAttribute("bacSi", bacSi);
+			
+			LichTrinh lichTrinh = new LichTrinh();
+			
+			model.addAttribute("lichTrinh", lichTrinh);
+			
+	 	return "layout/bac-si/lichtrinh";
+		}
+	
+	 
+	 @GetMapping("/HealthBooking/admin/bac-si/lichtrinh/{bacsi}")
+		public String getlichtrinhbacsi( Model model , @PathVariable("bacsi") int doctorID , @RequestParam(name = "ngay", required = false) String ngay) {
+			
+			BacSi doctor = doctorDao.findById(doctorID).get();
+			
+			 List<LichTrinh> lichTrinhs = doctor.getLichTrinh();
+			 
+		
+			 
+			    // Chuyển ngày từ String sang LocalDate
+			   if (ngay != null) {
+
+				   
+				    LocalDate ngayLamViec = LocalDate.parse(ngay, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+				    
+				    
+				  
+				    List<LichTrinh> lichTrinhList = 
+				    	lichTrinhDao.findByNgayLamViecAndMaBacSi(ngayLamViec, doctor);
+				    
+				    
+				    
+				    
+				    doctor.setLichTrinh(lichTrinhList);
+
+				    
+			   }else {
+				   
+				// Lấy ngày sau 7 ngày từ ngày hiện tại
+				   LocalDate currentDate = LocalDate.now();
+				   LocalDate endDate = currentDate.plusDays(7);
+
+				   List<LichTrinh> lichTrinhList7NgayTrangThaiTrong = lichTrinhDao.findByMaBacSiAndTrangThai(doctor, "trống");
+
+				// Lọc danh sách lịch trình để chỉ giữ lại những ngày nằm trong khoảng từ ngày hiện tại đến 7 ngày sau
+				lichTrinhList7NgayTrangThaiTrong = lichTrinhList7NgayTrangThaiTrong.stream()
+				    .filter(lichTrinh -> lichTrinh.getNgayLamViec().isAfter(currentDate) && lichTrinh.getNgayLamViec().isBefore(endDate))
+				    .collect(Collectors.toList());
+
+				doctor.setLichTrinh(lichTrinhList7NgayTrangThaiTrong);
+
+			
+			}   
+			     Set<String> upcomingDays = getUpcomingDaysFromLichTrinh(lichTrinhs);
+			   
+			      model.addAttribute("bacSi" , doctor);   
+			      
+			      LichTrinh lichTrinh = new LichTrinh();
+			      
+			      model.addAttribute("lichTrinh", lichTrinh);
+			      
+			      model.addAttribute("listUniqueNgays", upcomingDays);
+
+			      return "layout/bac-si/lichtrinh";
+		}
+	 
+	 
+	 
+	 @GetMapping("/HealthBooking/admin/bac-si/lichtrinh/{id}/{bacsi}")
+		public String bacsilichtriinhthaydoi( Model model, @PathVariable("bacsi") int doctorID 
+				,@PathVariable("id") int id
+				) {
+			
+			// Lấy đối tượng Authentication từ SecurityContextHolder
+	         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+	         String username = authentication.getName();
+	        
+			 BacSi bacSi = doctorDao.findByEmail(username);
+			 
+			 LichTrinh lichTrinh = lichTrinhDao.getById(id);
+			
+	        LocalDate ngay = lichTrinh.getNgayLamViec();
+
+	        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+	        String ngayString = ngay.format(formatter);
+			 
+			Set<String> upcomingDays = getUpcomingDaysFromLichTrinh(bacSi.getLichTrinh());
+		
+			
+		    LocalDate ngayLamViec = LocalDate.parse(ngayString, DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+				
+				 List<LichTrinh> lichTrinhList = 
+					    	lichTrinhDao.findByNgayLamViecAndMaBacSi(ngayLamViec, bacSi );
+				
+					
+					model.addAttribute("lichTrinh", lichTrinh);
+					    
+					    bacSi.setLichTrinh(lichTrinhList);
+
+		    
+		    model.addAttribute("listUniqueNgays", upcomingDays);
+		
+			model.addAttribute("bacSi", bacSi);
+			
+	 	return "layout/bac-si/lichtrinh";
+		}
+
+
+	 @GetMapping("/HealthBooking/admin/bac-si/lichtrinh/trangthai/{id}")
+		public String bacsilichtriinhthaydoitrangthai( Model model, 
+				    @PathVariable("id") int id,
+			        @RequestParam(name = "trangThai", defaultValue = "") String trangThai) {
+			// Lấy đối tượng Authentication từ SecurityContextHolder
+         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+         String username = authentication.getName();
+        
+		 BacSi bacSi = doctorDao.findByEmail(username);
+		 
+		 LichTrinh lichTrinh = lichTrinhDao.getById(id);
+		 
+		 lichTrinh.setTrangThai(trangThai);
+		 
+		 lichTrinhDao.save(lichTrinh);
+		
+		 int maBacSiInt = bacSi.getMaBacSi();
+		 
+		 String bacsi = String.valueOf(maBacSiInt);
+
+		 
+	   return "redirect:/HealthBooking/admin/bac-si/lichtrinh/" + id + "/" + bacsi;
+
+	 }
 
 	
 }

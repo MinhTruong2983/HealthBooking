@@ -83,7 +83,7 @@
 				  <p class="card-text">
                   <strong>Trạng thái lịch hẹn:</strong>
 
-                  <form th:with="lichHenId=${lichHen.maLichHen}" th:action="@{/HealthBooking/bac-si/__${lichHenId}__}" th:method="get">
+                  <form th:with="lichHenId=${lichHen.maLichHen}" th:action="@{/HealthBooking/admin/bac-si/__${lichHenId}__}" th:method="get">
 
 
                 <select class="form-select w-50 fw-bold" name="TrangThai" onchange="this.form.submit()">
