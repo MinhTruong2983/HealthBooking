@@ -6,64 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3e98c07c-f5ec-4429-9d15-f016653d5025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/admin/AdminBacSiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/admin/AdminBacSiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/benh-nhan/create.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/benh-nhan/danhsachbenhnhan.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/chuyen-khoa/danhsachchuyenkhoa.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/co-so-y-te/danhsachcosoyte.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com/HealthBooking/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/maven/com/HealthBooking/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/HealthBookingApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/HealthBookingApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/Security/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/Security/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/Security/UserServiceImp.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/Security/UserServiceImp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/Security/securityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/Security/securityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/ThongKeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/ThongKeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/thong-ke/bacSi.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/thong-ke/bacSi.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/BacSiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/BacSiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/BaiVietController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/BaiVietController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/BenhNhanController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/BenhNhanController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/ChuyenKhoaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/ChuyenKhoaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/CoSoYTeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/CoSoYTeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/DichVuController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/DichVuController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/HomeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/HomeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/LichHenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/LichHenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/LichTrinhController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/LichTrinhController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/admin/AdminBacSiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/admin/AdminBacSiController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/admin/AdminBenhNhanController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/admin/AdminBenhNhanController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/admin/AdminChuyenKhoaController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/admin/AdminChuyenKhoaController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/admin/AdminCoSoyTeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/admin/AdminCoSoyTeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/BacSiDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/BacSiDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/BaiVietDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/BaiVietDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/BenhNhanDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/BenhNhanDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/ChuyenKhoaDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/ChuyenKhoaDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/CoSoYTeDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/CoSoYTeDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/DichVuDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/DichVuDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/GoiKhamDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/GoiKhamDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/LichHenDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/LichHenDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/LichTrinhDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/LichTrinhDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/TaiKhoanDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/dao/TaiKhoanDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/BacSi.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/BacSi.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/BaiViet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/BaiViet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/BenhNhan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/BenhNhan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/ChuyenKhoa.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/ChuyenKhoa.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/CoSoYTe.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/CoSoYTe.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/DichVu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/DichVu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/GoiKham.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/GoiKham.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/LichHen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/LichHen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/LichTrinh.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/LichTrinh.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/TaiKhoan.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/entity/TaiKhoan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/enums/GioiTinh.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/enums/GioiTinh.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/service/CookieService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/service/CookieService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/service/ParamService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/service/ParamService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/service/SessionService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/service/SessionService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vnpay/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vnpay/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vnpay/vnpayQuery.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vnpay/vnpayQuery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vnpay/vnpayRefund.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vnpay/vnpayRefund.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout/benh-nhan/create.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout/benh-nhan/danhsachbenhnhan.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout/chuyen-khoa/danhsachchuyenkhoa.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout/co-so-y-te/danhsachcosoyte.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout/lichkhamdadattienmat.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout/lichkhamdadattienmat.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/com/healthbooking/HealthBookingApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/healthbooking/HealthBookingApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/ThongKeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/ThongKeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout/thong-ke/bacSi.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout/thong-ke/bacSi.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +59,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "chuong",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/02_SCHOOL/06_Graduation_Project/Project/HealthBooking/src/main/resources/templates/layout/thong-ke",
+    "last_opened_file_path": "D:/02_SCHOOL/04_FALL_23/Java 5/Lab Excercise/old/PC03908_NguyenLeHoangThang_Lab5",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",

@@ -1,16 +1,22 @@
 package com.healthbooking.controller;
 
-import com.healthbooking.dao.BacSiDao;
-import com.healthbooking.dao.BenhNhanDao;
+import com.healthbooking.dao.*;
 import com.healthbooking.entity.BacSi;
 import com.healthbooking.entity.BenhNhan;
+import com.healthbooking.entity.ChuyenKhoa;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class ThongKeController {
@@ -20,6 +26,12 @@ public class ThongKeController {
 
     @Autowired
     private BenhNhanDao benhNhanDao;
+    @Autowired
+    private CoSoYTeDao coSoYTeDao;
+    @Autowired
+    private LichHenDao lichHenDao;
+    @Autowired
+    private ChuyenKhoaDao chuyenKhoaDao;
 
     @RequestMapping("/HealthBooking/thong-ke")
     public String thongKeHome() {
@@ -27,7 +39,7 @@ public class ThongKeController {
     }
 
     @GetMapping("/HealthBooking/thong-ke/bac-si")
-    public String getAllBacSi(Model model) {
+    public String BacSi(Model model) {
         List<BacSi> bacSi = doctorDao.findAll();
         model.addAttribute("bacSi", bacSi);
         return "layout/thong-ke/bacSi";

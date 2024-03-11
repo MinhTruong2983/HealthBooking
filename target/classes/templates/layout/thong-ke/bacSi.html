@@ -27,6 +27,7 @@
                     <thead>
                     <tr class="text-center">
                         <th scope="col">#</th>
+                        <th scope="col">Ảnh</th>
                         <th scope="col">Tên bác sĩ</th>
                         <th scope="col">Chuyên khoa</th>
                         <th scope="col">Cơ sở y tế</th>
@@ -36,13 +37,16 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
-                        <tr></tr>
+                        <tr class="text-center" th:each="bacSi : ${bacSi}" th:object="${bacSi}">
+                            <td>[[*{maBacSi}]]</td>
+                            <td>[[*{hinhAnh}]]</td>
+                            <td>[[*{tenBacSi}]]</td>
+                            <td>[[*{chuyenKhoa.tenChuyenKhoa}]]</td>
+                            <td>[[*{coSoYTe.tenCoSoYTe}]]</td>
+                            <td>[[*{email}]]</td>
+                            <td>[[*{daoTao}]]</td>
+                            <td>[[*{soDienThoai}]]</td>
+                        </tr>
                     </tbody>
                 </table>
             </main>
