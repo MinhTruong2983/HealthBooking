@@ -394,13 +394,9 @@ public class BacSiController {
 		             newLichTrinh.setMaBacSi(bacSi);
 		           
 		             lichTrinhDao.save(newLichTrinh);
-		             
 		         }
-		     }
-		     
-		 }
-
-		 
+		     }  
+		 }		 
 		 return "redirect:/HealthBooking/admin/bac-si/lichtrinh" ;
 
 	 }

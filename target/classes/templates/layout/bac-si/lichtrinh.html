@@ -56,10 +56,8 @@
      <select class="form-select w-50 fw-bold mt-2" name="trangThai" onchange="this.form.submit()">
                 <option th:each="lichTrinh : ${lichTrinh.trangThai}" 
                   th:value="${lichTrinh}" 
-                  th:text="${lichTrinh}"
-                
-                 ></option>
-
+                  th:text="${lichTrinh}"></option>
+    <option value="Bận">Bận</option>
     <option value="Trống">Trống</option>
     <option value="Được đặt">Đã Đặt</option>
     
