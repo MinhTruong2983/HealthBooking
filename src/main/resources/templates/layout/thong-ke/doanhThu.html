@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthbooking - Nền tảng y tế sức khỏe toàn diện</title>
+    <title>HealthBooking Bác Sĩ</title>
+    <link rel="shortcut icon" href="/image/Logo.png" type="image/x-icon">
+    <link rel="stylesheet" th:href="@{/bootstrap-5.3.2-dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../style.css">
+    <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+
+<div style="background-color: #003399; height: 130px">
+    <header th:insert="~{/layout/bac-si/header.html::headerFragment}"></header>
+</div>
+
+<main style="min-height: 30vh;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2" th:insert="~{/layout/thong-ke/sitebar.html::sitebarFragment}"></div>
+            <main class="col-10">
+
+                <h1 class="text-center fw-bold">Danh sách doanh thu</h1>
+
+            </main>
+        </div>
+    </div>
+</main>
+
+<footer th:insert="~{/layout/footer.html::footerFragment}"></footer>
+
+<script th:src="@{/jsSlidershow/jquery.min.js}"></script>
+<script th:src="@{/jsSlidershow/popper.js}"></script>
+<script th:src="@{/jsSlidershow/bootstrap.min.js}"></script>
+<script th:src="@{/jsSlidershow/owl.carousel.min.js}"></script>
+<script th:src="@{/jsSlidershow/main.js}"></script>
+</body>
+</html>
