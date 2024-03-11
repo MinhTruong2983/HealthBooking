@@ -67,9 +67,9 @@ import lombok.Data;
 		    
 		    @Override
 		    public String toString() {
-		        return "BacSi" +
-		                "maBacSi=" + maBacSi +  ","+
-		                "tenBacSi=" + tenBacSi 
+		        return "BacSi (" +
+		                "maBacSi= " + maBacSi +  ","+
+		                "tenBacSi=" + tenBacSi +")"
 		                // Các thuộc tính khác của BacSi +
 		                ;
 		    }

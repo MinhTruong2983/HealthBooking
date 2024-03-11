@@ -39,7 +39,7 @@ import lombok.Data;
 	    private String trangThai;
 	
 	    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	    @JoinColumn(name = "maBacSi", referencedColumnName = "maBacSi", insertable = false, updatable = false)
+	    @JoinColumn(name = "maBacSi", referencedColumnName = "maBacSi")
 	    private BacSi maBacSi;
 	
 	    

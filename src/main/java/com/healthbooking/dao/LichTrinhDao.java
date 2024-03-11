@@ -16,7 +16,8 @@ public interface LichTrinhDao extends JpaRepository<LichTrinh, Integer>{
 
     List<LichTrinh> findByTrangThai(String trangThai);
     
-	List<LichTrinh> findByNgayLamViecAndMaBacSi(LocalDate ngayLamViec, BacSi doctor);
+    
+	List<LichTrinh> findByNgayLamViecAndMaBacSi(LocalDate ngayLamViec, BacSi maBacSi);
 
 
 

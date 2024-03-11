@@ -101,7 +101,7 @@ public class BacSiController {
 			    
 			  
 			    List<LichTrinh> lichTrinhList = 
-			    	lichTrinhDao.findByNgayLamViecAndMaBacSiAndTrangThai(ngayLamViec, doctor, "trống");
+			    	lichTrinhDao.findByNgayLamViecAndMaBacSiAndTrangThai(ngayLamViec, doctor, "Trống");
 			    
 			    doctor.setLichTrinh(lichTrinhList);
 
@@ -112,7 +112,7 @@ public class BacSiController {
 			   LocalDate currentDate = LocalDate.now();
 			   LocalDate endDate = currentDate.plusDays(7);
 
-			   List<LichTrinh> lichTrinhList7NgayTrangThaiTrong = lichTrinhDao.findByMaBacSiAndTrangThai(doctor, "trống");
+			   List<LichTrinh> lichTrinhList7NgayTrangThaiTrong = lichTrinhDao.findByMaBacSiAndTrangThai(doctor, "Trống");
 
 			// Lọc danh sách lịch trình để chỉ giữ lại những ngày nằm trong khoảng từ ngày hiện tại đến 7 ngày sau
 			lichTrinhList7NgayTrangThaiTrong = lichTrinhList7NgayTrangThaiTrong.stream()
@@ -259,7 +259,7 @@ public class BacSiController {
 				   LocalDate currentDate = LocalDate.now();
 				   LocalDate endDate = currentDate.plusDays(7);
 
-				   List<LichTrinh> lichTrinhList7NgayTrangThaiTrong = lichTrinhDao.findByMaBacSiAndTrangThai(doctor, "trống");
+				   List<LichTrinh> lichTrinhList7NgayTrangThaiTrong = lichTrinhDao.findByMaBacSiAndTrangThai(doctor, "Trống");
 
 				// Lọc danh sách lịch trình để chỉ giữ lại những ngày nằm trong khoảng từ ngày hiện tại đến 7 ngày sau
 				lichTrinhList7NgayTrangThaiTrong = lichTrinhList7NgayTrangThaiTrong.stream()
@@ -356,7 +356,7 @@ public class BacSiController {
 	 
 	 
 	 @GetMapping("/HealthBooking/admin/bac-si/lichtrinh/taolichtrinh")
-		public String bacsitaolichtrinh( Model model)    {
+		public String bacsitaolichtrinh( Model model) {
 			// Lấy đối tượng Authentication từ SecurityContextHolder
          Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
@@ -368,12 +368,6 @@ public class BacSiController {
 		 
 		 String bacsi = String.valueOf(maBacSiInt);
 		 
-		 LichTrinh lichTrinh = new LichTrinh();
-		 
-		 model.addAttribute("lichTrinh",lichTrinh);
-		 
-		 
-		 
 		// Lấy ngày sau 7 ngày từ ngày hiện tại
 		 LocalDate currentDate = LocalDate.now();
 		 LocalDate endDate = currentDate.plusDays(7);
@@ -384,8 +378,6 @@ public class BacSiController {
 		     List<LichTrinh> lichTrinhList = lichTrinhDao.findByNgayLamViecAndMaBacSi(ngayLamViec,bacSi);
 
 		     
-		     
-		     System.out.println(lichTrinhList);
 		     if (lichTrinhList.isEmpty()) {
 		         // Không có lịch trình cho ngày hiện tại, tạo lịch trình cho từng khoảng thời gian
 		         for (LocalTime startTime = LocalTime.of(8, 0); startTime.isBefore(LocalTime.of(17, 0)); startTime = startTime.plusMinutes(30)) {
@@ -393,22 +385,23 @@ public class BacSiController {
 
 		             // Tạo lịch trình và thêm vào cơ sở dữ liệu
 		             LichTrinh newLichTrinh = new LichTrinh();
+		             
+		           
 		             newLichTrinh.setNgayLamViec(ngayLamViec);
 		             newLichTrinh.setThoigianbatdau(startTime);
 		             newLichTrinh.setThoigianketthuc(endTime);
-		             newLichTrinh.setTrangThai("Trống");
+		             newLichTrinh.setTrangThai("Trống"); 
 		             newLichTrinh.setMaBacSi(bacSi);
-		             
-		             System.out.println("thêm oke la" + newLichTrinh);
-		             // Các bước khác để thiết lập thông tin lịch trình
+		           
 		             lichTrinhDao.save(newLichTrinh);
+		             
 		         }
 		     }
 		     
 		 }
 
 		 
-		 return "layout/bac-si/taolichtrinh";
+		 return "redirect:/HealthBooking/admin/bac-si/lichtrinh" ;
 
 	 }
 	 
