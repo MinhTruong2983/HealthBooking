@@ -1,6 +1,9 @@
 <div xmlns:th="http://www.thymeleaf.org">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex align-items-start" style="height: 500px" th:fragment="sitebarFragment">
+    <nav class="p-3 navbar navbar-expand-lg navbar-light bg-light d-flex align-items-start" style="height: 500px" th:fragment="sitebarFragment">
         <ul class="navbar-nav d-flex flex-column collapse navbar-collapse">
+            <li class="nav-item pt-3 mb-4">
+                <h4>Menu</h4>
+            </li>
             <li class="nav-item">
                 <a class="nav-link" th:href="@{/HealthBooking/thong-ke/bac-si}">Bác sĩ</a>
             </li>

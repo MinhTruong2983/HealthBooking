@@ -71,6 +71,14 @@
                         </tr>
                     </tbody>
                 </table>
+                <div class="container">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a th:href="@{/HealthBooking/thong-ke/bac-si(page=0)}" class="btn btn-outline-danger me-md-2" type="button">Về đầu</a>
+                        <a th:href="@{/HealthBooking/thong-ke/bac-si(page=${bacSi.number - 1})}" class="btn btn-outline-danger" type="button">Lùi lại</a>
+                        <a th:href="@{/HealthBooking/thong-ke/bac-si(page=${bacSi.number + 1})}" class="btn btn-outline-danger" type="button">Tiếp theo</a>
+                        <a th:href="@{/HealthBooking/thong-ke/bac-si(page=${bacSi.totalPages - 1})}" class="btn btn-outline-danger" type="button">Đến cuối</a>
+                    </div>
+                </div>
             </main>
         </div>
     </div>

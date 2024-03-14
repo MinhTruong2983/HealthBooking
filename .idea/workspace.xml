@@ -7,9 +7,10 @@
     <list default="true" id="3e98c07c-f5ec-4429-9d15-f016653d5025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/ThongKeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/ThongKeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BacSiDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BacSiDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/thong-ke/bacSi.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/thong-ke/bacSi.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/thong-ke/sitebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/thong-ke/sitebar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/ThongKeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/ThongKeController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout/thong-ke/bacSi.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout/thong-ke/bacSi.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +128,7 @@
       <workItem from="1709273241584" duration="634000" />
       <workItem from="1709468164936" duration="2770000" />
       <workItem from="1709524676822" duration="12093000" />
-      <workItem from="1710427408184" duration="1746000" />
+      <workItem from="1710427408184" duration="4044000" />
     </task>
     <servers />
   </component>

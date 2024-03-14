@@ -39,9 +39,10 @@ public class ThongKeController {
     }
 
     @GetMapping("/HealthBooking/thong-ke/bac-si")
-    public String BacSi(Model model) {
+    public String BacSi(Model model, @RequestParam("page") Optional<Integer> page) {
+        Pageable pageable = PageRequest.of(page.orElse(0), 5);
         int totalDoctors = doctorDao.countDoctors();
-        List<BacSi> bacSi = doctorDao.findAll();
+        Page<BacSi> bacSi = doctorDao.findAll(pageable);
         model.addAttribute("bacSi", bacSi);
         model.addAttribute("totalDoctors", totalDoctors);
         return "layout/thong-ke/bacSi";
