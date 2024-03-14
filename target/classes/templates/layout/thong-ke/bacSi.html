@@ -20,9 +20,24 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-2" th:insert="~{/layout/thong-ke/sitebar.html::sitebarFragment}"></div>
-            <main class="col-10">
-
-                <h1 class="text-center fw-bold">Danh sách bác sĩ</h1>
+            <main class="col-10 p-3">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h1 class="text-start fw-bold">Danh sách bác sĩ</h1>
+                        </div>
+                        <div class="col text-end">
+                            <div class="d-grid gap-4 d-md-flex justify-content-md-end">
+                                <div style="line-height: 40px">
+                                    <b>Số lượng hiện tại:</b>
+                                    <span class="text-danger">[[${totalDoctors}]]</span>
+                                </div>
+                                <button class="btn btn-outline-success me-md-2" type="button">Thêm bác sĩ</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr>
                 <table class="table table-hover">
                     <thead>
                     <tr class="text-center">
@@ -31,21 +46,28 @@
                         <th scope="col">Tên bác sĩ</th>
                         <th scope="col">Chuyên khoa</th>
                         <th scope="col">Cơ sở y tế</th>
-                        <th scope="col">Email</th>
                         <th scope="col">Đào tạo</th>
                         <th scope="col">Số điện thoại</th>
+                        <th scope="col" width="200">Lựa chọn</th>
                     </tr>
                     </thead>
                     <tbody>
                         <tr class="text-center" th:each="bacSi : ${bacSi}" th:object="${bacSi}">
                             <td>[[*{maBacSi}]]</td>
-                            <td>[[*{hinhAnh}]]</td>
+                            <td>
+                                <img th:src="@{'/img/' + *{hinhAnh}}" class="img-thumbnail" width="100" alt="...">
+                            </td>
                             <td>[[*{tenBacSi}]]</td>
                             <td>[[*{chuyenKhoa.tenChuyenKhoa}]]</td>
                             <td>[[*{coSoYTe.tenCoSoYTe}]]</td>
-                            <td>[[*{email}]]</td>
                             <td>[[*{daoTao}]]</td>
                             <td>[[*{soDienThoai}]]</td>
+                            <td>
+                                <div class="d-grid gap-2 d-md-block">
+                                    <a href="" type="button" class="btn btn-outline-primary">Sửa</a>
+                                    <a href="" type="button" class="btn btn-outline-danger">Xóa</a>
+                                </div>
+                            </td>
                         </tr>
                     </tbody>
                 </table>

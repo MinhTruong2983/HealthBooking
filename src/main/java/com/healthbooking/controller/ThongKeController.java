@@ -40,8 +40,10 @@ public class ThongKeController {
 
     @GetMapping("/HealthBooking/thong-ke/bac-si")
     public String BacSi(Model model) {
+        int totalDoctors = doctorDao.countDoctors();
         List<BacSi> bacSi = doctorDao.findAll();
         model.addAttribute("bacSi", bacSi);
+        model.addAttribute("totalDoctors", totalDoctors);
         return "layout/thong-ke/bacSi";
     }
     @GetMapping("/HealthBooking/thong-ke/benh-nhan")

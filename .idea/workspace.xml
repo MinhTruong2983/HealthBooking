@@ -7,10 +7,9 @@
     <list default="true" id="3e98c07c-f5ec-4429-9d15-f016653d5025" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/ThongKeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/controller/ThongKeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BacSiDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/healthbooking/dao/BacSiDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/layout/thong-ke/bacSi.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/layout/thong-ke/bacSi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/BacSiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/BacSiController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/ThongKeController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/healthbooking/controller/ThongKeController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/layout/thong-ke/bacSi.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/layout/thong-ke/bacSi.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,31 +45,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "chuong",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/02_SCHOOL/04_FALL_23/Java 5/Lab Excercise/old/PC03908_NguyenLeHoangThang_Lab5",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;chuong&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/02_SCHOOL/04_FALL_23/Java 5/Lab Excercise/old/PC03908_NguyenLeHoangThang_Lab5&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.healthbooking.enums" />
@@ -128,6 +127,7 @@
       <workItem from="1709273241584" duration="634000" />
       <workItem from="1709468164936" duration="2770000" />
       <workItem from="1709524676822" duration="12093000" />
+      <workItem from="1710427408184" duration="1746000" />
     </task>
     <servers />
   </component>

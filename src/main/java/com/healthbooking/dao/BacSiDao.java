@@ -27,4 +27,8 @@ public interface BacSiDao extends JpaRepository<BacSi, Integer>{
 	    List<BacSi> findByCoSoYTe_MaCoSoYTe(int maCoSoYTe);
 	    
 	    BacSi findByEmail(String email);
+
+	@Query("SELECT COUNT(ds) FROM BacSi ds")
+	int countDoctors();
+
 }
