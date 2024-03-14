@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthbooking - Nền tảng y tế sức khỏe toàn diện</title>
+  <title>HealthBooking Bác Sĩ</title>
+  <link rel="shortcut icon" href="/image/Logo.png" type="image/x-icon">
+  <link rel="stylesheet" th:href="@{/bootstrap-5.3.2-dist/css/bootstrap.min.css}"/>
+  <link rel="stylesheet" href="../style.css">
+  <script src="/bootstrap-5.3.2-dist/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+
+<div style="background-color: #003399; height: 130px">
+  <header th:insert="~{/layout/bac-si/header.html::headerFragment}"></header>
+</div>
+
+<main style="min-height: 30vh;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2" th:insert="~{/layout/thong-ke/sitebar.html::sitebarFragment}"></div>
+      <main class="col-10 py-5">
+        <form class="row g-3" th:action="@{/HealthBooking/thong-ke/bac-si/create}">
+          <h1>Hồ sơ bác sĩ <span class="text-danger fs-5">(Tạo hồ sơ)</span></h1>
+          <div class="col-md-6">
+            <label for="tenBacSi" class="form-label">Họ và tên</label>
+            <input type="text" class="form-control" id="tenBacSi" name="tenBacSi">
+          </div>
+          <div class="col-md-3">
+            <label for="chuyenKhoa" class="form-label">Chuyên khoa</label>
+            <select id="chuyenKhoa" class="form-select" name="chuyenKhoa">
+              <option th:each="chuyenKhoa : ${chuyenKhoaList}" th:value="${chuyenKhoa.maChuyenKhoa}">[[${chuyenKhoa.tenChuyenKhoa}]]</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label for="tuoi" class="form-label">Ngày sinh</label>
+            <input type="text" class="form-control" name="tuoi" id="tuoi">
+          </div>
+          <div class="col-md-6">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" name="email" id="email">
+          </div>
+          <div class="col-md-6">
+            <label for="sdt" class="form-label">Số điện thoại</label>
+            <input type="text" class="form-control" name="soDienThoai" id="sdt">
+          </div>
+          <div class="col-6">
+            <label for="kinhNghiem" class="form-label">Kinh nghiệm</label>
+            <input type="text" class="form-control" name="kinhNghiem" id="kinhNghiem" placeholder="Nhập kinh nghiệm bác sĩ">
+          </div>
+          <div class="col-6">
+            <label for="daoTao" class="form-label">Đào tạo</label>
+            <input type="text" class="form-control" name="daoTao" id="daoTao" placeholder="Nhập đào tạo bác sĩ">
+          </div>
+          <div class="col-6">
+            <label for="diaChi" class="form-label">Khu vực làm việc</label>
+            <select id="diaChi" class="form-select" name="khuVuc">
+              <option th:value="Hà Nội">Hà Nội</option>
+              <option th:value="Đà Nẵng">Đà Nẵng</option>
+              <option th:value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+            </select>
+          </div>
+          <div class="col-6">
+            <label for="coSo" class="form-label">Cơ sở y tế</label>
+            <select id="coSo" class="form-select" name="coSoYTe">
+              <option th:each="coSo : ${coSoYTeList}" th:value="${coSo.maCoSoYTe}">[[${coSo.tenCoSoYTe}]]</option>
+            </select>
+          </div>
+
+          <div class="d-flex justify-content-end col-12">
+            <button type="submit" class="btn btn-success">Tạo hồ sơ</button>
+          </div>
+        </form>
+
+      </main>
+    </div>
+  </div>
+</main>
+
+<footer th:insert="~{/layout/footer.html::footerFragment}"></footer>
+
+<script th:src="@{/jsSlidershow/jquery.min.js}"></script>
+<script th:src="@{/jsSlidershow/popper.js}"></script>
+<script th:src="@{/jsSlidershow/bootstrap.min.js}"></script>
+<script th:src="@{/jsSlidershow/owl.carousel.min.js}"></script>
+<script th:src="@{/jsSlidershow/main.js}"></script>
+</body>
+</html>

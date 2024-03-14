@@ -4,6 +4,7 @@ import com.healthbooking.dao.*;
 import com.healthbooking.entity.BacSi;
 import com.healthbooking.entity.BenhNhan;
 import com.healthbooking.entity.ChuyenKhoa;
+import com.healthbooking.entity.CoSoYTe;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -47,6 +48,35 @@ public class ThongKeController {
         model.addAttribute("totalDoctors", totalDoctors);
         return "layout/thong-ke/bacSi";
     }
+
+    @RequestMapping("/HealthBooking/thong-ke/bac-si/trang-ca-nhan")
+    public String taoBacSi(Model model) {
+        List<ChuyenKhoa> chuyenKhoaList = chuyenKhoaDao.findAll();
+        List<CoSoYTe> coSoYTeList = coSoYTeDao.findAll();
+        model.addAttribute("chuyenKhoaList", chuyenKhoaList);
+        model.addAttribute("coSoYTeList",coSoYTeList);
+        return "layout/thong-ke/taoBacSi";
+    }
+
+    @RequestMapping("/HealthBooking/thong-ke/bac-si/create")
+    public String createBacSi(BacSi item) {
+        doctorDao.save(item);
+        return "redirect:/HealthBooking/thong-ke/bac-si";
+    }
+
+    @RequestMapping("/HealthBooking/thong-ke/bac-si/edit/{id}")
+    public String editBacSi(Model model, @PathVariable("id") int id) {
+        BacSi bacSi = doctorDao.findById(id).orElse(new BacSi());
+        model.addAttribute("bacSi", bacSi);
+        return "redirect:/HealthBooking/thong-ke/bac-si/trang-ca-nhan";
+    }
+
+    @RequestMapping("/HealthBooking/thong-ke/bac-si/update")
+    public String updateBacSi(BacSi item) {
+        doctorDao.save(item);
+        return "redirect:/HealthBooking/thong-ke/bac-si/edit/" +item.getMaBacSi();
+    }
+
     @GetMapping("/HealthBooking/thong-ke/benh-nhan")
     public String getAllBenhNhan() {
         return "layout/thong-ke/benhNhan";

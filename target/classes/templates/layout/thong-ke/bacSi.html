@@ -32,7 +32,7 @@
                                     <b>Số lượng hiện tại:</b>
                                     <span class="text-danger">[[${totalDoctors}]]</span>
                                 </div>
-                                <button class="btn btn-outline-success me-md-2" type="button">Thêm bác sĩ</button>
+                                <a th:href="@{/HealthBooking/thong-ke/bac-si/trang-ca-nhan}" class="btn btn-outline-success me-md-2" type="button">Thêm bác sĩ</a>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                             <td>[[*{soDienThoai}]]</td>
                             <td>
                                 <div class="d-grid gap-2 d-md-block">
-                                    <a href="" type="button" class="btn btn-outline-primary">Sửa</a>
+                                    <a th:href="@{/HealthBooking/thong-ke/bac-si/edit/{id}(id=${bacSi.maBacSi})}" type="button" class="btn btn-outline-primary">Sửa</a>
                                     <a href="" type="button" class="btn btn-outline-danger">Xóa</a>
                                 </div>
                             </td>
